@@ -46,6 +46,12 @@ INSTALLED_APPS = [
     'apps.organizations.apps.OrganizationsConfig',
     'apps.operations.apps.OperationsConfig',
     'simpleui',
+    'crispy_forms',
+    'extra_apps.xadmin.apps.XAdminConfig',
+    # 'captcha',
+    # 'pure_pagination',
+    'extra_apps.DjangoUeditor',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -113,8 +119,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-# AUTH_USER_MODEL = "users.UserProfile"
+# 重写user
+AUTH_USER_MODEL = "users.UserProfile"
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
