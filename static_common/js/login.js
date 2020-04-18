@@ -82,14 +82,14 @@ $(function() {
 
     //input的focus和blur效果
 	$('input[type=text]').focus(function(){
-		$(this).parent().removeClass('blur').addClass('focus');
+		$(this).parent().removeClass('blur').removeClass('errorput').addClass('focus');
 	});
 	$('input[type=text]').blur(function(){
 		$(this).parent().removeClass('focus').addClass('blur');
 	});
     //input的focus和blur效果
 	$('input[type=password]').focus(function(){
-		$(this).parent().removeClass('blur').addClass('focus');
+		$(this).parent().removeClass('blur').removeClass('errorput').addClass('focus');
 	});
 	$('input[type=password]').blur(function(){
 		$(this).parent().removeClass('focus').addClass('blur');

@@ -223,11 +223,11 @@ a:hover{
     background: #FB8344;
 }
 .error{
-    background: #fb8344;
-    color:#fff !important;
-    text-align: center;
-    line-height: 40px !important;
-    margin:10px 0;
+    position: relative;
+    top: -13px;
+    color: red !important;
+    text-align: left;
+    margin-top: 24px;
 }
 .form-group{
     position:relative;

@@ -21,13 +21,22 @@ from django.views.generic import TemplateView
 
 from extra_apps import xadmin
 
+from apps.users.views import LoginView, LogoutView
+
 from zxSchool.settings import MEDIA_ROOT
 
 urlpatterns = [
+    # 主页
     path('', TemplateView.as_view(template_name="index.html")),
     path('index/', TemplateView.as_view(template_name="index.html"),  name="index"),
-    path('login/', TemplateView.as_view(template_name="login.html"), name="login"),
+
+    # 登录页
+    path('login/', LoginView.as_view(), name="login"),
+    path('logout/', LogoutView.as_view(), name="logout"),
+
+    # 后台管理
     path('admin/', admin.site.urls),
+    # 备用后台管理
     path('xadmin/', xadmin.site.urls),
 
     # 访问上传文件
