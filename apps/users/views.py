@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 
 from apps.users.models import UserProfile
-from apps.users.forms import LoginForm, DynamicLoginForm, DynamicLoginPostForm
+from apps.users.forms import LoginForm, DynamicLoginForm, DynamicLoginPostForm, RegisterGetForm, RegisterPostForm
 from apps.utils.YunPian import send_single_sms
 from apps.utils.random_str import generate_random
 from apps.utils.redis_tools import redis_save
@@ -147,9 +147,9 @@ class DynamicLoginView(View):
 
 class RegisterView(View):
     def get(self, request, *args, **kwargs):
-        # register_get_form = RegisterGetForm()
+        register_get_form = RegisterGetForm()
         return render(request, "register.html", {
-            # "register_get_form":register_get_form
+            "register_get_form": register_get_form
         })
 
     def post(self, request, *args, **kwargs):
@@ -167,6 +167,6 @@ class RegisterView(View):
         else:
             register_get_form = RegisterGetForm()
             return render(request, "register.html", {
-                "register_get_form":register_get_form,
+                "register_get_form": register_get_form,
                 "register_post_form": register_post_form
             })

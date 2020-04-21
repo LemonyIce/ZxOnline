@@ -327,7 +327,8 @@ a:hover{
     float: right;
 }
 .auto-box{
-    height:18px;
+    /*height:18px;*/
+    height: 1px;
     line-height:18px;
 }
 .auto-box > label > input{
