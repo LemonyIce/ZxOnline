@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'apps.operations.apps.OperationsConfig',
     'crispy_forms',
     'extra_apps.xadmin.apps.XAdminConfig',
-    # 'captcha',
+    'captcha',
     # 'pure_pagination',
     'extra_apps.DjangoUeditor',
     'import_export',
@@ -147,3 +147,18 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# 云片网相关
+YP = {
+    "apikey": "f615db1772e8ddc5171fd7cef2c28b09",
+    "url": "https://sms.yunpian.com/v2/sms/single_send.json",
+    "text": "【刘靖宇test】您的验证码是{}",
+}
+# redis 相关
+REDIS = {
+    "host": "127.0.0.1",
+    "port": "6379",
+}
+
+

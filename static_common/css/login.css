@@ -239,6 +239,13 @@ a:hover{
     border-radius: 3px;
     overflow:hidden;
 }
+.form-group-tips{
+    position: relative;
+    top: -16px;
+    padding-right: 7px;
+    text-align: right;
+    font-size: x-small;
+}
 .marb20{
     margin-bottom:20px;
 }

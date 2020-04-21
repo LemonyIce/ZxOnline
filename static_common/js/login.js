@@ -126,8 +126,9 @@ $(function() {
             },
             async: true,
             beforeSend:function(XMLHttpRequest){
-                $sendBtn.val("发送中...");
+                // $sendBtn.val("发送中...");
                 $sendBtn.attr("disabled","disabled");
+
             },
             success: function(data){
                 $sendBtn.removeAttr("disabled");
@@ -169,7 +170,7 @@ $(function() {
     });
 
     //重发送短信验证码计时
-    function show_send_sms(time){
+    show_send_sms = function (time){
     $('#jsSendCode').val(time+"秒后重发");
     if(time<=0){
         clearTimeout(send_sms_time);

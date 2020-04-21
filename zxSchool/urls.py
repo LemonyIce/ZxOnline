@@ -18,10 +18,11 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.views.static import serve
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
 
 from extra_apps import xadmin
 
-from apps.users.views import LoginView, LogoutView
+from apps.users.views import LoginView, LogoutView, SendSmsView, DynamicLoginView, RegisterView
 
 from zxSchool.settings import MEDIA_ROOT
 
@@ -32,7 +33,13 @@ urlpatterns = [
 
     # 登录页
     path('login/', LoginView.as_view(), name="login"),
+    path('d_login/', DynamicLoginView.as_view(), name="d_login"),
     path('logout/', LogoutView.as_view(), name="logout"),
+    path('register/', RegisterView.as_view(), name="register"),
+
+    # 图形验证短信验证
+    url(r'^captcha/', include('captcha.urls')),
+    url(r'^send_sms/', csrf_exempt(SendSmsView.as_view()), name="send_sms"),    # 因异步请求解除此次请求的csrf
 
     # 后台管理
     path('admin/', admin.site.urls),

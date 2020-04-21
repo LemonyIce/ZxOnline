@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 
-from apps.users.forms import LoginForm
+from apps.users.models import UserProfile
+from apps.users.forms import LoginForm, DynamicLoginForm, DynamicLoginPostForm
+from apps.utils.YunPian import send_single_sms
+from apps.utils.random_str import generate_random
+from apps.utils.redis_tools import redis_save
+from zxSchool.settings import YP, REDIS
+import redis
 
 
 # Create your views here.
@@ -18,9 +24,9 @@ class LoginView(View):
             return HttpResponseRedirect(reverse("index"))
         # banners = Banner.objects.all()[:3]
         # next = request.GET.get("next", "")
-        # login_form = DynamicLoginForm()
+        login_form = DynamicLoginForm()
         return render(request, "login.html", {
-            # "login_form":login_form,
+            "login_form": login_form,
             # "next":next,
             # "banners":banners
         })
@@ -60,3 +66,107 @@ class LogoutView(View):
     def get(self, request, *args, **kwargs):
         logout(request)
         return HttpResponseRedirect(reverse("index"))
+
+
+class SendSmsView(View):
+    """
+    动态登录
+    """
+    def post(self, request, *args, **kwargs):
+        import time
+        send_sms_form = DynamicLoginForm(request.POST)
+        re_dict = {}
+        if send_sms_form.is_valid():
+            mobile = send_sms_form.cleaned_data["mobile"]
+            code = generate_random(4, 0)
+            # re_json = send_single_sms(YP["apikey"], code, mobile=mobile)
+            re_json = {
+                "code": 0,
+            }  # 测试用
+            if re_json["code"] == 0:
+                re_dict["status"] = "success"
+                redis_save({
+                    "key": mobile,
+                    "value": code,
+                    "model": "set",
+                    "overtime": 300
+                })
+            else:
+                re_dict["msg"] = re_json["msg"]
+        else:
+            for key, value in send_sms_form.errors.items():
+                re_dict[key] = value[0]
+
+        return JsonResponse(re_dict)
+
+
+class DynamicLoginView(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse("index"))
+    #     next = request.GET.get("next", "")
+    #     login_form = DynamicLoginForm()
+    #     banners = Banner.objects.all()[:3]
+        return render(request, "login.html", {
+    #         "login_form":login_form,
+    #         "next":next,
+    #         "banners":banners
+        })
+
+    def post(self, request, *args, **kwargs):
+        login_form = DynamicLoginPostForm(request.POST)
+        dynamic_login = True
+        # banners = Banner.objects.all()[:3]
+        if login_form.is_valid():
+            # 查没有注册账号，没有就注册一个
+            mobile = login_form.cleaned_data["mobile"]
+            existed_users = UserProfile.objects.filter(mobile=mobile)
+            if existed_users:
+                user = existed_users[0]
+            else:
+                user = UserProfile(username=mobile)
+                # 密码为10位随机字符数字
+                password = generate_random(10, 2)
+                user.set_password(password)
+                # 注意密码不能保存明文需要经过加密
+                user.mobile = mobile
+                user.save()
+            login(request, user)
+            # next = request.GET.get("next", "")
+            # if next:
+            #     return HttpResponseRedirect(next)
+            return HttpResponseRedirect(reverse("index"))
+        else:
+            d_form = DynamicLoginForm()
+            return render(request, "login.html", {"login_form": login_form,
+                                                  "d_form": d_form,
+                                                  # "banners":banners,
+                                                  "dynamic_login": dynamic_login
+                                                  })
+
+
+class RegisterView(View):
+    def get(self, request, *args, **kwargs):
+        # register_get_form = RegisterGetForm()
+        return render(request, "register.html", {
+            # "register_get_form":register_get_form
+        })
+
+    def post(self, request, *args, **kwargs):
+        register_post_form = RegisterPostForm(request.POST)
+        if register_post_form.is_valid():
+            mobile = register_post_form.cleaned_data["mobile"]
+            password = register_post_form.cleaned_data["password"]
+            # 新建一个用户
+            user = UserProfile(username=mobile)
+            user.set_password(password)
+            user.mobile = mobile
+            user.save()
+            login(request, user)
+            return HttpResponseRedirect(reverse("index"))
+        else:
+            register_get_form = RegisterGetForm()
+            return render(request, "register.html", {
+                "register_get_form":register_get_form,
+                "register_post_form": register_post_form
+            })
