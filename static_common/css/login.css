@@ -16,6 +16,9 @@ a:hover{
 }
 .bg-box{
     background:url(../images/login-bg.png) no-repeat center center;
+    /*background:url(../images/zx_login_bg_1.png) no-repeat center center;*/
+    /*background:url(../images/zx_login-bg_g.png) no-repeat center center;*/
+
 }
 .header-box{
     width:1190px;
