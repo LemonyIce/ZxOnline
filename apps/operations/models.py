@@ -51,7 +51,7 @@ class CourseComments(BaseModel):
 class UserFavorite(BaseModel):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name="用户")
     fav_id = models.IntegerField(verbose_name="数据id")
-    fav_type = models.IntegerField(choices=((1,"课程"),(2,"课程机构"),(3,"讲师")), default=1, verbose_name="收藏类型")
+    fav_type = models.IntegerField(choices=((1, "课程"), (2, "课程机构"), (3, "讲师")), default=1, verbose_name="收藏类型")
 
     class Meta:
         verbose_name = "用户收藏"

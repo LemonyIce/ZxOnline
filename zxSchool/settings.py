@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'extra_apps.xadmin.apps.XAdminConfig',
     'captcha',
-    # 'pure_pagination',
+    'pure_pagination',
     'extra_apps.DjangoUeditor',
     'import_export',
 ]
@@ -69,7 +69,12 @@ ROOT_URLCONF = 'zxSchool.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [
+            os.path.join(BASE_DIR, ''),
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'apps/organizations/'),
+            os.path.join(BASE_DIR, 'apps/organizations/templates'),
+                 ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,6 +83,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',  # 注册静态文件地址
+                'apps.users.views.message_nums',
             ],
         },
     },
@@ -159,6 +166,12 @@ YP = {
 REDIS = {
     "host": "127.0.0.1",
     "port": "6379",
+}
+# 分页相关设置
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 6,
+    'MARGIN_PAGES_DISPLAYED': 1,
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
 }
 
 

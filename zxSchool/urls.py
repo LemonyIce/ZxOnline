@@ -23,13 +23,14 @@ from django.views.decorators.csrf import csrf_exempt
 from extra_apps import xadmin
 
 from apps.users.views import LoginView, LogoutView, SendSmsView, DynamicLoginView, RegisterView
+from apps.organizations.views import OrgView
 
 from zxSchool.settings import MEDIA_ROOT
 
 urlpatterns = [
     # 主页
     path('', TemplateView.as_view(template_name="index.html")),
-    path('index/', TemplateView.as_view(template_name="index.html"),  name="index"),
+    path('index/', TemplateView.as_view(template_name="index.html"), name="index"),
 
     # 登录页
     path('login/', LoginView.as_view(), name="login"),
@@ -40,6 +41,19 @@ urlpatterns = [
     # 图形验证短信验证
     url(r'^captcha/', include('captcha.urls')),
     url(r'^send_sms/', csrf_exempt(SendSmsView.as_view()), name="send_sms"),    # 因异步请求解除此次请求的csrf
+
+    # 机构
+    url(r'^org/', include(('apps.organizations.urls', "organizations"), namespace="org")),
+    url(r'^org_list/', OrgView.as_view(), name="org_list"),
+
+    # 课程
+    url(r'^course/', include(('apps.course.urls', "courses"), namespace="course")),
+
+    # 用户相关操作
+    url(r'^op/', include(('apps.operations.urls', "operations"), namespace="op")),
+
+    # 个人中心
+    # url(r'^users/', include(('apps.users.urls', "users"), namespace="users")),
 
     # 后台管理
     path('admin/', admin.site.urls),

@@ -3452,6 +3452,9 @@ footer .footer .line {
 .butler_list .cont .c7, .companyranklist .cont .c8 {
     background: url(../images/pic7.png) no-repeat left center;
 }
+.butler_list .cont .c7{
+        text-indent: 20px;
+}
 
 .butler_list .cont .c8, .companyranklist .cont .c7 {
     background: url(../images/share_c8.png) no-repeat left center;
@@ -5145,9 +5148,30 @@ footer .footer .line {
     text-align: center;
     background: #ff8833 url(../images/star-btn.png) no-repeat 15px center;
     text-indent: 15px;
-    border-radius: 3px;
+    border-radius: 22px;
     margin-top: 40px;
     cursor: pointer;
+    border-style: solid;
+    border-color: #eee;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+.companyheader .hasfav {
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    color: #ff8833;
+    text-align: center;
+    background: #eee url(../images/star-btn-hover.png) no-repeat 15px center;
+    text-indent: 15px;
+    border-radius: 22px;
+    margin-top: 40px;
+    cursor: pointer;
+    border-style: solid;
+    border-color: #ff8833;
+    font-weight: bolder;
+    font-size: medium;
 }
 
 .companycenter {
@@ -5326,6 +5350,12 @@ footer .footer .line {
     width: 945px;
     height: auto !important;
     overflow: hidden;
+}
+
+.def_txt {
+    color: #ae9f9f;
+    font-size: medium;
+    margin: 22px 32px;
 }
 
 .companycenter .group_list .box {

@@ -1,9 +1,8 @@
-django==2.2
+django==2.18
 mysqlclient
 pillow
 django-pure-pagination
 redis
 django-simple-captcha
 requests
-django-simple-captcha
-redis
+

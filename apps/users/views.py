@@ -14,6 +14,16 @@ import redis
 
 
 # Create your views here.
+def message_nums(request):
+    """
+    登录状态
+    """
+    if request.user.is_authenticated:
+        return {'unread_nums': request.user.usermessage_set.filter(has_read=False).count()}
+    else:
+        return {}
+
+
 class LoginView(View):
     """
     登录
@@ -25,7 +35,7 @@ class LoginView(View):
         # banners = Banner.objects.all()[:3]
         # next = request.GET.get("next", "")
         login_form = DynamicLoginForm()
-        return render(request, "login.html", {
+        return render(request, "index/../../templates/login.html", {
             "login_form": login_form,
             # "next":next,
             # "banners":banners
@@ -52,11 +62,11 @@ class LoginView(View):
                 # 未查询到用户
                 # return render(request, "login.html", {"msg": "用户名或密码错误",
                 #                                       "login_form": login_form, "banners": banners})
-                return render(request, "login.html", {"msg": "用户名或密码错误", "login_form": login_form,})
+                return render(request, "index/../../templates/login.html", {"msg": "用户名或密码错误", "login_form": login_form, })
         else:
             # return render(request, "login.html", {"login_form": login_form, "banners": banners})
             print(login_form.errors.items)
-            return render(request, "login.html", {"login_form": login_form, })
+            return render(request, "index/../../templates/login.html", {"login_form": login_form, })
 
 
 class LogoutView(View):
@@ -82,7 +92,7 @@ class SendSmsView(View):
             # re_json = send_single_sms(YP["apikey"], code, mobile=mobile)
             re_json = {
                 "code": 0,
-            }  # 测试用
+            }  # 测试用标记注释，这里注释掉的是短信发送接口
             if re_json["code"] == 0:
                 re_dict["status"] = "success"
                 redis_save({
@@ -107,7 +117,7 @@ class DynamicLoginView(View):
     #     next = request.GET.get("next", "")
     #     login_form = DynamicLoginForm()
     #     banners = Banner.objects.all()[:3]
-        return render(request, "login.html", {
+        return render(request, "index/../../templates/login.html", {
     #         "login_form":login_form,
     #         "next":next,
     #         "banners":banners
@@ -138,17 +148,17 @@ class DynamicLoginView(View):
             return HttpResponseRedirect(reverse("index"))
         else:
             d_form = DynamicLoginForm()
-            return render(request, "login.html", {"login_form": login_form,
+            return render(request, "index/../../templates/login.html", {"login_form": login_form,
                                                   "d_form": d_form,
-                                                  # "banners":banners,
+                                                                        # "banners":banners,
                                                   "dynamic_login": dynamic_login
-                                                  })
+                                                                        })
 
 
 class RegisterView(View):
     def get(self, request, *args, **kwargs):
         register_get_form = RegisterGetForm()
-        return render(request, "register.html", {
+        return render(request, "index/../../templates/register.html", {
             "register_get_form": register_get_form
         })
 
@@ -166,7 +176,7 @@ class RegisterView(View):
             return HttpResponseRedirect(reverse("index"))
         else:
             register_get_form = RegisterGetForm()
-            return render(request, "register.html", {
+            return render(request, "index/../../templates/register.html", {
                 "register_get_form": register_get_form,
                 "register_post_form": register_post_form
             })
