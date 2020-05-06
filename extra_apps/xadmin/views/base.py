@@ -320,8 +320,8 @@ class CommAdminView(BaseAdminView):
     base_template = 'xadmin/base_site.html'
     menu_template = 'xadmin/includes/sitemenu_default.html'
 
-    site_title = getattr(settings, "XADMIN_TITLE", _(u"Django Xadmin"))
-    site_footer = getattr(settings, "XADMIN_FOOTER_TITLE", _(u"my-company.inc"))
+    site_title = getattr(settings, "XADMIN_TITLE", _(u"知行在线管理中心"))
+    site_footer = getattr(settings, "XADMIN_FOOTER_TITLE", _(u"知行在线"))
 
     global_models_icon = {}
     default_model_icon = None
@@ -346,7 +346,8 @@ class CommAdminView(BaseAdminView):
 
         nav_menu = OrderedDict()
 
-        for model, model_admin in self.admin_site._registry.items():
+        menus_ = self.admin_site._registry.items()
+        for model, model_admin in menus_:
             if getattr(model_admin, 'hidden_menu', False):
                 continue
             app_label = model._meta.app_label
@@ -366,11 +367,18 @@ class CommAdminView(BaseAdminView):
                 nav_menu[app_key]['menus'].append(model_dict)
             else:
                 # Find app title
+                appL = apps.get_app_config(app_label)
                 app_title = smart_text(app_label.title())
                 if app_label.lower() in self.apps_label_title:
                     app_title = self.apps_label_title[app_label.lower()]
                 else:
                     app_title = smart_text(apps.get_app_config(app_label).verbose_name)
+                    if app_label == "auth":
+                        app_index = len(menus_) - 1
+                    elif app_label == "xadmin":
+                        app_index = len(menus_) - 2
+                    else:
+                        app_index = appL.orderIndex
                 # find app icon
                 if app_label.lower() in self.apps_icons:
                     app_icon = self.apps_icons[app_label.lower()]
@@ -378,6 +386,7 @@ class CommAdminView(BaseAdminView):
                 nav_menu[app_key] = {
                     'title': app_title,
                     'menus': [model_dict],
+                    'orderIndex': app_index
                 }
 
             app_menu = nav_menu[app_key]
@@ -394,7 +403,8 @@ class CommAdminView(BaseAdminView):
             menu['menus'].sort(key=sortkeypicker(['order', 'title']))
 
         nav_menu = list(nav_menu.values())
-        nav_menu.sort(key=lambda x: x['title'])
+        # nav_menu.sort(key=lambda x: x['title'])
+        nav_menu.sort(key=sortkeypicker(['orderIndex']))
 
         site_menu.extend(nav_menu)
 
@@ -477,8 +487,10 @@ class CommAdminView(BaseAdminView):
     @filter_hook
     def get_breadcrumb(self):
         return [{
-            'url': self.get_admin_url('index'),
-            'title': _('Home')
+            # 'url': self.get_admin_url('index'),
+            # 'title': _('Home')
+            'url': '/index/',
+            'title': '网站首页'
         }]
 
 

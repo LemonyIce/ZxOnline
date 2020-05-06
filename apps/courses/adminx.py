@@ -3,6 +3,16 @@ from extra_apps import xadmin
 from apps.courses.models import Course, Lesson, Video, BannerCourse, CourseResource, CourseTag
 
 
+# class GlobalSettings(object):
+#     site_title = "知行在线管理中心"
+#     site_footer = "知行在线网"
+#
+#
+# class BaseSettings(object):
+#     enable_themes = True
+#     use_bootswatch = True
+
+
 class CourseAdmin(object):
     list_display = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students']
     search_fields = ['name', 'desc', 'detail', 'degree', 'students']
@@ -22,5 +32,36 @@ class BannerCourseAdmin(object):
         return qs
 
 
+class LessonAdmin(object):
+    list_display = ['course', 'name', 'add_time']
+    search_fields = ['course', 'name']
+    list_filter = ['course__name', 'name', 'add_time']
+
+
+class VideoAdmin(object):
+    list_display = ['lesson', 'name', 'add_time']
+    search_fields = ['lesson', 'name']
+    list_filter = ['lesson', 'name', 'add_time']
+
+
+class CourseResourceAdmin(object):
+    list_display = ['course', 'name', 'file', 'add_time']
+    search_fields = ['course', 'name', 'file']
+    list_filter = ['course', 'name', 'file', 'add_time']
+
+
+class CourseTagAdmin(object):
+    list_display = ['course', 'tag', 'add_time']
+    search_fields = ['course', 'tag']
+    list_filter = ['course', 'tag', 'add_time']
+
+
 xadmin.site.register(Course, CourseAdmin)
 xadmin.site.register(BannerCourse, BannerCourseAdmin)
+xadmin.site.register(Lesson, LessonAdmin)
+xadmin.site.register(Video, VideoAdmin)
+xadmin.site.register(CourseResource, CourseResourceAdmin)
+xadmin.site.register(CourseTag, CourseTagAdmin)
+
+# xadmin.site.register(xadmin.views.CommAdminView, GlobalSettings)
+# xadmin.site.register(xadmin.views.BaseAdminView, BaseSettings)

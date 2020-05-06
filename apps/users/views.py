@@ -26,18 +26,18 @@ def message_nums(request):
 
 class LoginView(View):
     """
-    登录
+    账号登录
     """
     def get(self, request, *args, **kwargs):
         # 是否有登录信息，注意django全局公用session
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse("index"))
         # banners = Banner.objects.all()[:3]
-        # next = request.GET.get("next", "")
+        next = request.GET.get("next", "")
         login_form = DynamicLoginForm()
-        return render(request, "index/../../templates/login.html", {
+        return render(request, "templates/login.html", {
             "login_form": login_form,
-            # "next":next,
+            "next": next,
             # "banners":banners
         })
 
@@ -54,19 +54,19 @@ class LoginView(View):
                 # 查询到用户
                 login(request, user)
                 # 登录成功之后应该怎么返回页面
-                # next = request.GET.get("next", "")
-                # if next:
-                #     return HttpResponseRedirect(next)
+                next = request.GET.get("next", "")
+                if next:
+                    return HttpResponseRedirect(next)
                 return HttpResponseRedirect(reverse("index"))
             else:
                 # 未查询到用户
                 # return render(request, "login.html", {"msg": "用户名或密码错误",
                 #                                       "login_form": login_form, "banners": banners})
-                return render(request, "index/../../templates/login.html", {"msg": "用户名或密码错误", "login_form": login_form, })
+                return render(request, "templates/login.html", {"msg": "用户名或密码错误",
+                                                                "login_form": login_form})
         else:
             # return render(request, "login.html", {"login_form": login_form, "banners": banners})
-            print(login_form.errors.items)
-            return render(request, "index/../../templates/login.html", {"login_form": login_form, })
+            return render(request, "templates/login.html", {"login_form": login_form, })
 
 
 class LogoutView(View):
@@ -80,7 +80,7 @@ class LogoutView(View):
 
 class SendSmsView(View):
     """
-    动态登录
+    发送验证码
     """
     def post(self, request, *args, **kwargs):
         import time
@@ -111,16 +111,19 @@ class SendSmsView(View):
 
 
 class DynamicLoginView(View):
+    """
+    动态登录
+    """
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse("index"))
-    #     next = request.GET.get("next", "")
-    #     login_form = DynamicLoginForm()
-    #     banners = Banner.objects.all()[:3]
-        return render(request, "index/../../templates/login.html", {
-    #         "login_form":login_form,
-    #         "next":next,
-    #         "banners":banners
+        next = request.GET.get("next", "")
+        login_form = DynamicLoginForm()
+        # banners = Banner.objects.all()[:3]
+        return render(request, "templates/login.html", {
+            "login_form": login_form,
+            "next": next,
+            # "banners": banners
         })
 
     def post(self, request, *args, **kwargs):
@@ -142,23 +145,26 @@ class DynamicLoginView(View):
                 user.mobile = mobile
                 user.save()
             login(request, user)
-            # next = request.GET.get("next", "")
-            # if next:
-            #     return HttpResponseRedirect(next)
+            next = request.GET.get("next", "")
+            if next:
+                return HttpResponseRedirect(next)
             return HttpResponseRedirect(reverse("index"))
         else:
             d_form = DynamicLoginForm()
-            return render(request, "index/../../templates/login.html", {"login_form": login_form,
-                                                  "d_form": d_form,
-                                                                        # "banners":banners,
-                                                  "dynamic_login": dynamic_login
-                                                                        })
+            return render(request, "templates/login.html", {"login_form": login_form,
+                                                            "d_form": d_form,
+                                                            # "banners":banners,
+                                                            "dynamic_login": dynamic_login
+                                                            })
 
 
 class RegisterView(View):
+    """
+    注册
+    """
     def get(self, request, *args, **kwargs):
         register_get_form = RegisterGetForm()
-        return render(request, "index/../../templates/register.html", {
+        return render(request, "templates/register.html", {
             "register_get_form": register_get_form
         })
 
@@ -176,7 +182,7 @@ class RegisterView(View):
             return HttpResponseRedirect(reverse("index"))
         else:
             register_get_form = RegisterGetForm()
-            return render(request, "index/../../templates/register.html", {
+            return render(request, "templates/register.html", {
                 "register_get_form": register_get_form,
                 "register_post_form": register_post_form
             })

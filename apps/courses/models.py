@@ -55,14 +55,22 @@ class Course(BaseModel):
     go_to.short_description = "跳转"
 
 
+# =============================================================================================================
 class BannerCourse(Course):
+    """
+    轮播课程
+    """
     class Meta:
         verbose_name = "轮播课程"
         verbose_name_plural = verbose_name
         proxy = True
 
 
+# =============================================================================================================
 class CourseTag(BaseModel):
+    """
+    课程标签
+    """
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程")
     tag = models.CharField(max_length=100, verbose_name="标签")
 
@@ -74,7 +82,11 @@ class CourseTag(BaseModel):
         return self.tag
 
 
+# =============================================================================================================
 class Lesson(BaseModel):
+    """
+    课程章节
+    """
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程")
     name = models.CharField(max_length=100, verbose_name="章节名")
     learn_times = models.IntegerField(default=0, verbose_name="学习时长(分钟数)")
@@ -87,7 +99,11 @@ class Lesson(BaseModel):
         return self.name
 
 
+# =============================================================================================================
 class Video(BaseModel):
+    """
+    视频
+    """
     lesson = models.ForeignKey(Lesson, verbose_name="章节", on_delete=models.CASCADE)
     name = models.CharField(max_length=100, verbose_name=u"视频名")
     learn_times = models.IntegerField(default=0, verbose_name=u"学习时长(分钟数)")
@@ -101,7 +117,11 @@ class Video(BaseModel):
         return self.name
 
 
+# =============================================================================================================
 class CourseResource(BaseModel):
+    """
+    课程资源
+    """
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程")
     name = models.CharField(max_length=100, verbose_name=u"名称")
     file = models.FileField(upload_to="course/resourse/%Y/%m", verbose_name="下载地址", max_length=200)

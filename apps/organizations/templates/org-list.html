@@ -65,9 +65,9 @@
             {% for org in all_orgs.object_list %}
                 <dl class="des difdes">
                     <dt>
-{#                        <a href="{% url 'org:home' org.id %}">#}
+                        <a href="{% url 'org:home' org.id %}">
                             <img width="200" height="120" class="scrollLoading" data-url="{{ MEDIA_URL }}{{ org.image }}"/>
-{#                        </a>#}
+                        </a>
                     </dt>
                     <dd>
                         <div class="clearfix">
@@ -84,7 +84,10 @@
                              </a>
                         </div>
                         <ul class="cont">
-                            <li class="first"><p class="pic9">课程数：<span>{{ org.course_nums }}</span></p><p class="c7">学习人数：<span>{{ org.students }}</span></p></li>
+                            <li class="first">
+                                <p class="pic9">课程数：<span>{{ org.course_nums }}</span></p>
+                                <p class="c7">学习人数：<span>{{ org.students }}</span></p>
+                            </li>
                             <li class="c8" style="padding-left:18px;">{{ org.address }}</li>
                             <li class="pic10" style="padding-left:18px;">经典课程：
                                     {% if org.courses %}

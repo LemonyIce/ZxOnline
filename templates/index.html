@@ -25,19 +25,22 @@
                     {% if request.user.is_authenticated %}
 						<div class="personal">
                             <dl class="user fr">
-                                <dd>admin<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
-                                <dt><img width="20" height="20" src="/media/default.jpg"/></dt>
+                                <dd>{{ user.nick_name }}<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
+                                <dt><img width="20" height="20" src="{{ user.image.url }}"/></dt>
                             </dl>
                             <div class="userdetail">
                             	<dl>
 	                                <dt><img width="80" height="80" src="/media/default.jpg"/></dt>
 	                                <dd>
-	                                    <h2>django</h2>
-	                                    <p>admin</p>
+	                                    <h2>{{ user.nick_name }}</h2>
+	                                    <p>{{ user.username }}</p>
 	                                </dd>
                                 </dl>
                                 <div class="btn">
-	                                <a class="personcenter fl" href="usercenter-info.html">进入个人中心</a>
+                                    <div class="personcenter fl">
+                                        <a class="" href="usercenter-info.html">进入个人中心</a>
+                                        <a class="" href="/xadmin/">进入管理中心</a>
+                                    </div>
 	                                <a class="fr" href="{% url 'logout' %}">退出</a>
                                 </div>
                             </div>
@@ -78,7 +81,7 @@
 						<ul>
 							<li class="active" ><a href="index.html">首页</a></li>
 							<li >
-								<a href="course-list.html">
+								<a href="{% url 'course:list' %}">
 									公开课<img class="hot" src="{% static 'images/nav_hot.png' %}">
 								</a>
 							</li>

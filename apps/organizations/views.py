@@ -12,6 +12,9 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 class OrgView(View):
+    """
+    获取数据和排序
+    """
     def get(self, request, *args, **kwargs):
         # 从数据库中获取数据
         all_orgs = CourseOrg.objects.all()

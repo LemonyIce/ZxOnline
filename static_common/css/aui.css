@@ -8,6 +8,7 @@
 @charset "UTF-8";
 html{
 	font-family: sans-serif;
+	overflow: auto;
 }
 html,body {
 	-webkit-touch-callout:none;
@@ -19,9 +20,9 @@ html,body {
 }
 body {
 	line-height: 1.5;
-	font-size: 16px;
+	/*font-size: 16px;*/
 	color: #000;
-	background-color: #f4f4f4;
+	/*background-color: #f4f4f4;*/
 	outline: 0;
 }
 html,body,header,section,footer,div,ul,ol,li,img,a,span,em,del,legend,center,strong,var,fieldset,form,label,dl,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea,h1,h2,h3,h4,h5,h6,p{
@@ -45,8 +46,8 @@ img {
 p {
 	margin-top: 0;
 	margin-bottom: 0;
-	font-size: 14px;
-	color: #8f8f94;
+	/*font-size: 14px;*/
+	/*color: #8f8f94;*/
 }
 a {
 	color: #0062cc;
@@ -80,6 +81,10 @@ hr {
 pre {
 	overflow: auto;
 }
+.searchbox{
+	height: 40px;
+}
+
 .fl{
 	float:left;
 }
@@ -632,7 +637,7 @@ textarea {
 	line-height: 21px;
 	-webkit-user-select: text;
 	background-color: #fff;
-	border: 1px solid rgba(0, 0, 0, .2);
+	/*border: 1px solid rgba(0, 0, 0, .2);*/
 	border-radius: 3px;
 	outline: none;
 }

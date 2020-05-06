@@ -59,7 +59,7 @@
                     <h2 class="{% if not dynamic_login %}active{% endif %}">账号登录</h2>
                     <h2 class="{% if dynamic_login %}active{% endif %}">动态登录</h2>
                 </div>
-                <form class="tab-form {% if dynamic_login %}hide{% endif %}" action="{% url 'login' %}" method="post" autocomplete="off" id="form1">
+                <form class="tab-form {% if dynamic_login %}hide{% endif %}" action="{% url 'login' %}?next={{ next }}" method="post" autocomplete="off" id="form1">
                     <div class="form-group marb20 {% if login_form.errors.username %}errorput{% endif %}">
                         <input name="username" id="account_l" type="text" placeholder="手机号/邮箱"
                             value="{{ login_form.username.value|default_if_none:'' }}"
@@ -91,7 +91,8 @@
                      <input class="btn btn-green" id="jsLoginBtn" type="submit" value="立即登录 > " />
                     {% csrf_token %}
                 </form>
-                <form class="tab-form {% if not dynamic_login %}hide{% endif %}" action="{% url 'd_login' %}" id="mobile_register_form"
+                <form class="tab-form {% if not dynamic_login %}hide{% endif %}"
+                      action="{% url 'd_login' %}?next={{ next }}" id="mobile_register_form"
                       autocomplete="off" method="post" id="form2">
 
                     <div class="form-group marb20  {% if login_form.errors.mobile %}errorput{% endif %}">

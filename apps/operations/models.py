@@ -9,6 +9,9 @@ UserProfile = get_user_model()
 
 
 class Banner(BaseModel):
+    """
+    轮播图
+    """
     title = models.CharField(max_length=100, verbose_name="标题")
     image = models.ImageField(upload_to="banner/%Y/%m", max_length=200, verbose_name="轮播图")
     url = models.URLField(max_length=200, verbose_name="访问地址")
@@ -22,7 +25,11 @@ class Banner(BaseModel):
         return self.title
 
 
+# ================================================================================================================
 class UserAsk(BaseModel):
+    """
+    用户咨询
+    """
     name = models.CharField(max_length=20, verbose_name="姓名")
     mobile = models.CharField(max_length=11, verbose_name="手机")
     course_name = models.CharField(max_length=50, verbose_name="课程名")
@@ -35,7 +42,11 @@ class UserAsk(BaseModel):
         return "{name}_{course}({mobile})".format(name=self.name, course=self.course_name, mobile=self.mobile)
 
 
+# ================================================================================================================
 class CourseComments(BaseModel):
+    """
+    课程评论
+    """
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name="用户")
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程")
     comments = models.CharField(max_length=200, verbose_name="评论内容")
@@ -48,7 +59,11 @@ class CourseComments(BaseModel):
         return self.comments
 
 
+# ================================================================================================================
 class UserFavorite(BaseModel):
+    """
+    用户收藏,
+    """
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name="用户")
     fav_id = models.IntegerField(verbose_name="数据id")
     fav_type = models.IntegerField(choices=((1, "课程"), (2, "课程机构"), (3, "讲师")), default=1, verbose_name="收藏类型")
@@ -61,7 +76,11 @@ class UserFavorite(BaseModel):
         return "{user}_{id}".format(user=self.user.username, id=self.fav_id)
 
 
+# ================================================================================================================
 class UserMessage(BaseModel):
+    """
+    用户消息
+    """
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name="用户")
     message = models.CharField(max_length=200, verbose_name="消息内容")
     has_read = models.BooleanField(default=False, verbose_name="是否已读")
@@ -74,7 +93,11 @@ class UserMessage(BaseModel):
         return self.message
 
 
+# ================================================================================================================
 class UserCourse(BaseModel):
+    """
+    用户课程
+    """
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name="用户")
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="课程")
 

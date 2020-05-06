@@ -1,6 +1,6 @@
 html,
 body {
-    font: 14px/1.5 "PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
+    font: 12px/1 "PingFang SC", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif;
     color: #14191e;
 }
 body {
@@ -90,7 +90,7 @@ a:active {
 }
 #logo a,
 .logo a {
-    display: block;
+    /*display: block;*/
     height: 60px;
     width: 140px;
     background: url(/static/img/common/logo.png?t=1) no-repeat center center;

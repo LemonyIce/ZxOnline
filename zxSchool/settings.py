@@ -74,6 +74,8 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'apps/organizations/'),
             os.path.join(BASE_DIR, 'apps/organizations/templates'),
+            os.path.join(BASE_DIR, 'apps/courses/'),
+            os.path.join(BASE_DIR, 'apps/courses/template'),
                  ]
         ,
         'APP_DIRS': True,
@@ -98,8 +100,10 @@ WSGI_APPLICATION = 'zxSchool.wsgi.application'
 
 DATABASES = {
     'default': {
+        # 测试数据库
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # mysql数据库
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'zx_school',
         "USER": 'root',

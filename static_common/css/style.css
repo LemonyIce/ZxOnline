@@ -495,8 +495,12 @@ caption {
     background: #4FB137;
 }
 
-.header .top .userdetail .btn a.fl {
+.header .top .userdetail .btn .fl {
     width: 65%;
+}
+.header .top .userdetail .btn .fl a{
+    display: inline-block;
+    width: 49%;
 }
 
 .header .top .userdetail .btn a.fr {

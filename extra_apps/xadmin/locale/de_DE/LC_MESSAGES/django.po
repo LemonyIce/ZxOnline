@@ -1311,11 +1311,11 @@ msgstr "Änderungen speichern"
 
 #: views/base.py:315
 msgid "Django Xadmin"
-msgstr "Django Xadmin"
+msgstr "Zhixing online management center"
 
 #: views/base.py:316
 msgid "my-company.inc"
-msgstr ""
+msgstr "Zhixing online"
 
 #: views/dashboard.py:186
 msgid "Widget ID"

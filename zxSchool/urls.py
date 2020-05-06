@@ -47,7 +47,7 @@ urlpatterns = [
     url(r'^org_list/', OrgView.as_view(), name="org_list"),
 
     # 课程
-    url(r'^course/', include(('apps.course.urls', "courses"), namespace="course")),
+    url(r'^course/', include(('apps.courses.urls', "courses"), namespace="course")),
 
     # 用户相关操作
     url(r'^op/', include(('apps.operations.urls', "operations"), namespace="op")),
@@ -58,7 +58,7 @@ urlpatterns = [
     # 后台管理
     path('admin/', admin.site.urls),
     # 备用后台管理
-    path('xadmin/', xadmin.site.urls),
+    path('xadmin/', xadmin.site.urls,),
 
     # 访问上传文件
     url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),

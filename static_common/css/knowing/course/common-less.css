@@ -77,6 +77,7 @@ i {
     font-weight: bold;
     font-size: 32px;
     color: white;
+    margin-left: 20px;
 }
 .course-infos .video-desc-trigger {
     margin: 12px 0 0 28px;
@@ -586,6 +587,11 @@ i {
     padding: 12px 0;
     border-bottom: 1px solid #edf1f2;
 }
+.downlist .message{
+    color: #787d82;
+    font-size: 12px;
+    margin: 5px;
+}
 .downlist li span {
     display: block;
     margin-right: 35px;
@@ -758,7 +764,7 @@ i {
     clear: both;
     color: #ff7a39;
     padding: 5px 10px 0;
-    height: 35px;
+    height: 40px;
     line-height: 2em;
     overflow: hidden;
     cursor: pointer;

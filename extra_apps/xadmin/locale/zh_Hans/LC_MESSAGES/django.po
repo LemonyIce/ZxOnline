@@ -1387,11 +1387,11 @@ msgstr "保存变更"
 
 #: .\views\base.py:320
 msgid "Django Xadmin"
-msgstr "Django Xadmin"
+msgstr "知行在线管理中心"
 
 #: .\views\base.py:321
 msgid "my-company.inc"
-msgstr "我的公司"
+msgstr "知行在线"
 
 #: .\views\dashboard.py:189
 msgid "Widget ID"

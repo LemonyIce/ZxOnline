@@ -26,7 +26,11 @@
 						{% if user.is_authenticated %}
                             <div class="personal">
                                 <dl class="user fr">
-                                    <dd>{% if user.nick_name %}{{ user.nick_name }}{% else %}{{ user.username }}{% endif %}<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
+                                    <dd>{% if user.nick_name %}
+                                        {{ user.nick_name }}
+                                    {% else %}
+                                        {{ user.username }}
+                                    {% endif %}<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
                                     <dt><img width="20" height="20" src="{{ user.image.url }}"/></dt>
                                 </dl>
                                 <div class="userdetail">
@@ -84,9 +88,9 @@
 						<ul>
 							<li class="{% if request.path == '/' %}active{% endif %}" ><a href="{% url 'index' %}">首页</a></li>
 							<li class="{% if request.path|slice:'7' == '/course' %}active{% endif %}">
-{#								<a href="{% url 'course:list' %}">#}
-{#									公开课<img class="hot" src="{% static 'images/nav_hot.png' %}">#}
-{#								</a>#}
+								<a href="{% url 'course:list' %}">
+									公开课<img class="hot" src="{% static 'images/nav_hot.png' %}">
+								</a>
 							</li>
 							<li class="{% if request.path|slice:'13' == '/org/teachers' %}active{% endif %}">
 {#								<a href="{% url 'org:teachers' %}">授课教师</a>#}
@@ -94,8 +98,7 @@
 							<li class="{% if request.path|slice:'13' != '/org/teachers' %}
                                             {% if request.path|slice:'4' == '/org' %}active{% endif %}
                                 {% endif %}" >
-{#                                <a href="{% url 'org:list' %}">授课机构</a>#}
-                                <a href="{% url 'org_list' %}">授课机构</a>
+                                <a href="{% url 'org:list' %}">授课机构</a>
                             </li>
 						</ul>
 					</div>
@@ -123,7 +126,7 @@
 
 			</div>
 			<p class="line"></p>
-			<div class="wp clear">
+			<div class="wp">
                 <span class="fl">2020 www.XXX.com 知行在线-在线学习交流平台 保留所有权利</span>
                 <span class="fr">copyright  2020 ICP备案证书号：XICP备xxxxx号-1</span>
 			</div>
