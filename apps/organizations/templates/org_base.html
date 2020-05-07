@@ -73,8 +73,8 @@
                 </h1>
                 <p class="fl">
                     <span class="fl" style="margin-top:8px;color:#848484;">推荐指数： </span>
-                    <span class="precision company-credit" data-star-scope="5.0"></span>
-                    <span class="key">5.0</span>
+                    <span class="precision company-credit" data-star-scope="{{ course_org.recommended  }}"></span>
+                    <span class="key">{{ course_org.recommended  }}</span>
                 </p>
             </div>
             <div class="fr collectionbtn  notlogin {% if has_fav %}hasfav{% else %}btn{% endif %}"data-favid="22" data-fav-type="1">
@@ -82,9 +82,33 @@
             </div>
         </div>
     </div>
-			</div>
+            <nav>
+				<div class="nav">
+					<div class="wp">
+						<ul>
+							<li class="{% if request.path == '/' %}active{% endif %}" ><a href="{% url 'index' %}">首页</a></li>
+							<li class="{% if request.path|slice:'7' == '/course' %}active{% endif %}">
+								<a href="{% url 'course:list' %}">
+									公开课<img class="hot" src="{% static 'images/nav_hot.png' %}">
+								</a>
+							</li>
+							<li class="{% if request.path|slice:'13' == '/org/teachers' %}active{% endif %}">
+								<a href="{% url 'org:teachers' %}">授课教师</a>
+							</li>
+							<li class="{% if request.path|slice:'13' != '/org/teachers' %}
+                                            {% if request.path|slice:'4' == '/org' %}active{% endif %}
+                                {% endif %}" >
+                                <a href="{% url 'org:list' %}">授课机构</a>
+                            </li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+    </div>
+
     </header>
 </section>
+
 <section>
 	<div class="wp">
 		<ul  class="crumbs">
@@ -108,7 +132,7 @@
     {% block right_form %}
         {% endblock %}
 
-
+    </div>
 </section>
 <!--sidebar start-->
 <section>
@@ -135,7 +159,6 @@
 <script type="text/javascript">
 
 {% block custom_js %}{% endblock %}
-    //收藏分享
 //收藏分享
 function add_fav(current_elem, fav_id, fav_type){
     $.ajax({

@@ -6,7 +6,7 @@ from django.views.generic.base import View
 
 from apps.operations.models import UserFavorite
 from apps.organizations.forms import AddAskForm
-from apps.organizations.models import CourseOrg, City
+from apps.organizations.models import CourseOrg, City, Teacher
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -117,21 +117,12 @@ class OrgTeacherView(View):
     """
     def get(self, request, org_id, *args, **kwargs):
         current_page = "teacher"
-        course_org = CourseOrg.objects.get(id=int(org_id))
-        course_org.click_nums += 1
-        course_org.save()
-
-        has_fav = False
-        if request.user.is_authenticated:
-            if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
-                has_fav = True
-
-        all_teacher = course_org.teacher_set.all()
+        course = get_course(request.user, org_id)
         return render(request, "org-detail-teachers.html", {
-            "all_teacher": all_teacher,
-            "course_org": course_org,
+            "all_teacher": course["all_teacher"],
+            "course_org": course["course_org"],
             "current_page": current_page,
-            "has_fav": has_fav
+            "has_fav": course["has_fav"]
         })
 
 
@@ -175,17 +166,90 @@ class OrgDescView(View):
     """
     def get(self, request, org_id, *args, **kwargs):
         current_page = "desc"
-        course_org = CourseOrg.objects.get(id=int(org_id))
-        course_org.click_nums += 1
-        course_org.save()
-
-        has_fav = False
-        if request.user.is_authenticated:
-            if UserFavorite.objects.filter(user=request.user, fav_id=course_org.id, fav_type=2):
-                has_fav = True
+        course = get_course(request.user, org_id)
 
         return render(request, "org-detail-desc.html", {
-            "course_org": course_org,
+            "course_org": course["course_org"],
             "current_page": current_page,
-            "has_fav": has_fav
+            "has_fav": course["has_fav"]
         })
+
+
+class TeacherListView(View):
+    def get(self, request, *args, **kwargs):
+        all_teachers = Teacher.objects.all()
+        teacher_nums = all_teachers.count()
+
+        hot_teachers = Teacher.objects.all().order_by("-click_nums")[:3]
+
+        keywords = request.GET.get("keywords", "")
+        s_type = "teacher"
+        if keywords:
+            all_teachers = all_teachers.filter(Q(name__icontains=keywords))
+
+        # 对讲师进行排序
+        sort = request.GET.get("sort", "")
+        if sort == "hot":
+            all_teachers = all_teachers.order_by("-click_nums")
+
+        # 对讲师数据进行分页
+        try:
+            page = request.GET.get('page', 1)
+        except PageNotAnInteger:
+            page = 1
+
+        p = Paginator(all_teachers, per_page=10, request=request)
+        teachers = p.page(page)
+
+        return render(request, "teachers-list.html", {
+            "teachers": teachers,
+            "teacher_nums": teacher_nums,
+            "sort": sort,
+            "hot_teachers": hot_teachers,
+            "keywords": keywords,
+            "s_type": s_type
+        })
+
+
+class TeacherDetailView(View):
+    def get(self, request, teacher_id, *args, **kwargs):
+        teacher = Teacher.objects.get(id=int(teacher_id))
+
+        teacher_fav = False
+        org_fav = False
+        if request.user.is_authenticated:
+            if UserFavorite.objects.filter(user=request.user, fav_type=3, fav_id=teacher.id):
+                teacher_fav = True
+            if UserFavorite.objects.filter(user=request.user, fav_type=2, fav_id=teacher.org.id):
+                org_fav = True
+
+        hot_teachers = Teacher.objects.all().order_by("-click_nums")[:3]
+        return render(request, "teacher-detail.html", {
+            "teacher": teacher,
+            "teacher_fav": teacher_fav,
+            "org_fav": org_fav,
+            "hot_teachers": hot_teachers
+        })
+
+
+def get_course(user, org_id):
+    """
+    获取课程信息
+    :param user: request.user
+    :param org_id: org_id
+    :return: "course_org": 课程信息,"has_fav": 是否收藏,
+    """
+    course_org = CourseOrg.objects.get(id=int(org_id))
+    course_org.click_nums += 1
+    course_org.save()
+    all_teacher = course_org.teacher_set.all()
+
+    has_fav = False
+    if user.is_authenticated:
+        if UserFavorite.objects.filter(user=user, fav_id=course_org.id, fav_type=2):
+            has_fav = True
+    return {
+        "course_org": course_org,
+        "has_fav": has_fav,
+        "all_teacher": all_teacher
+    }

@@ -3084,9 +3084,13 @@ footer .footer .line {
     cursor: pointer;
 }
 
-.groupPurchase_detail .toppro .left .colectgroupbtn {
+.groupPurchase_detail .toppro .left .collectgroupbtn {
     width: 180px;
     background: #717171;
+}
+.groupPurchase_detail .toppro .left .collectgroupbtn_hover {
+    width: 180px;
+    background: #ff7800;
 }
 
 .groupPurchase_detail .toppro .left .collected {
@@ -3277,7 +3281,7 @@ footer .footer .line {
 }
 
 .butler_list_box .right {
-    width: 210px;
+    width: 215px;
     height: auto;
     overflow: hidden;
     float: right;
@@ -3347,6 +3351,22 @@ footer .footer .line {
     height: 25px;
     line-height: 25px;
     clear: both;
+}
+
+.butler_list_box dt .btn .share{
+    color: #fff;
+    background: #c1bfbf url(../images/btn4.png) no-repeat 30px center;
+    background-size: 11px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    padding: 5px 25px;
+    width: 64px;
+    height: 25px;
+    top: 133px;
+    left: 18px;
+    border-radius: 25px 25px 0 0;
 }
 
 .butler_list_box dt .btn div {
@@ -3527,7 +3547,7 @@ footer .footer .line {
 }
 
 .butler_list_box .right dd {
-    width: 80px;
+    width: 88px;
     height: 50px;
     margin-top: 10px;
     line-height: 150%;
@@ -3644,9 +3664,13 @@ footer .footer .line {
 .butler_detail_list .btn .btn1 {
     background: #717171 url(../images/btn3.png) no-repeat 15px center;
 }
+.butler_detail_list .btn .btn1_hover {
+    background: #717171 url(../images/btn3-hover.png) no-repeat 15px center;
+}
+
 
 .butler_detail_list .btn .btn2 {
-    background: #3a3a3a url(../images/btn4.png) no-repeat 20px center;
+    background: #ff8833 url(../images/btn4.png) no-repeat 20px center;
     position: relative;
 }
 

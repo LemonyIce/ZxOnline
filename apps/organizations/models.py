@@ -4,7 +4,13 @@ from extra_apps.DjangoUeditor.models import UEditorField
 from apps.users.models import BaseModel
 from apps.users.models import UserProfile
 
-
+RECOMMENDED_INDEX = {
+    (1, "1.0"),
+    (2, "2.0"),
+    (3, "3.0"),
+    (4, "4.0"),
+    (5, "5.0"),
+}
 class City(BaseModel):
     """
     城市
@@ -36,6 +42,7 @@ class CourseOrg(BaseModel):
     address = models.CharField(max_length=150, verbose_name="机构地址")
     students = models.IntegerField(default=0, verbose_name="学习人数")
     course_nums = models.IntegerField(default=0, verbose_name="课程数")
+    recommended = models.IntegerField(choices=RECOMMENDED_INDEX, verbose_name="推荐指数", default=2)
 
     is_auth = models.BooleanField(default=False, verbose_name="是否认证")
     is_gold = models.BooleanField(default=False, verbose_name="是否金牌")

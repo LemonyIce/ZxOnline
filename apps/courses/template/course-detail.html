@@ -42,7 +42,7 @@
 							</li>
 						</ul>
 						<div class="btns">
-							<div class="btn colectgroupbtn"  id="jsLeftBtn">
+							<div class="btn {% if has_fav_course %}collectgroupbtn_hover{% else %}collectgroupbtn{% endif %}"  id="jsLeftBtn">
                                   {% if has_fav_course %}已收藏{% else %}收藏{% endif %}
                             </div>
                             <a style="color: white" href="{% url 'course:lesson' course.id %}">
@@ -52,21 +52,6 @@
                             </a>
 						</div>
 					</div>
-                    <div class="group-share-box">
-                        <div class="bdsharebuttonbox"
-                             data-text="django开始了"
-                             data-desc="我在#慕课网#发现了"
-                             data-comment=""
-                             data-url="/group/groupdetail/15/">
-                            <span class="fl">分享到：</span>
-                            <a href="#" class="bds_more" data-cmd="more"></a>
-                            <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
-                            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-                            <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
-                            <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
-                            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
-                        </div>
-                    </div>
 				</div>
 				<div class="right">
 					<div class="head">
@@ -173,6 +158,11 @@ function add_fav(current_elem, fav_id, fav_type){
                     alert(data.msg)
                 }
             }else if(data.status == 'success'){
+                if (data.msg == "已收藏"){
+                    current_elem.removeClass("collectgroupbtn").addClass("collectgroupbtn_hover")
+                }else {
+                    current_elem.removeClass("collectgroupbtn_hover").addClass("collectgroupbtn")
+                }
                 current_elem.text(data.msg)
             }
         },

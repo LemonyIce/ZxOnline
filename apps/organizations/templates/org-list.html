@@ -92,9 +92,9 @@
                             <li class="pic10" style="padding-left:18px;">经典课程：
                                     {% if org.courses %}
                                         {% for course in org.courses %}
-{#                                           <a href="{% url 'course:detail' course.id %}">#}
+                                           <a href="{% url 'course:detail' course.id %}">
                                                 {{ course.name }}
-{#                                            </a>#}
+                                            </a>
                                         {% endfor %}
                                             {% else %}
                                             暂无
