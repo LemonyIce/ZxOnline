@@ -18,8 +18,8 @@
     overflow-y:auto;
     display:none;
     padding-top: 31px;
-    -webkit-box-shadow:1px 1px 2px #eee;
-    box-shadow:1px 1px 2px #eee;
+    -webkit-box-shadow:1px 1px 2px #f8f8f8;
+    box-shadow:1px 1px 2px #f8f8f8;
 }
 .selectul ul li{
     height:20px;

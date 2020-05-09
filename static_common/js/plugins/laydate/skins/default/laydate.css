@@ -32,7 +32,7 @@
 .laydate_body .laydate_box .laydate_void:hover{background-color:#fff!important}
 .laydate_body .laydate_box a, .laydate_body .laydate_box a:hover{color:#333;}
 .laydate_body .laydate_box a:hover{color:#666;}
-.laydate_body .laydate_click{background-color:#eee!important;}
+.laydate_body .laydate_click{background-color:#f8f8f8!important;}
 .laydate_body .laydate_top{border-top:1px solid #C6C6C6;}
 .laydate_body .laydate_ym .laydate_yms{border:1px solid #C6C6C6; background-color:#fff;}
 .laydate_body .laydate_y .laydate_yms a{border-bottom:1px solid #C6C6C6;}

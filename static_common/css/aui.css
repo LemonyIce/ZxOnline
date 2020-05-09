@@ -980,7 +980,7 @@ textarea {
 	background: #f4f4f4;
 }
 .aui-list-view-cell > a.aui-active{
-  	background-color: #eee;
+  	background-color: #f8f8f8;
 }
 .aui-list-view-cell > a.aui-ellipsis-1,
 .aui-list-view-cell > a.aui-ellipsis-2 {
@@ -1097,7 +1097,7 @@ textarea {
   	white-space: nowrap;
 }
 .aui-user-view-cell > a.aui-active {
-  	background-color: #eee;
+  	background-color: #f8f8f8;
 }
 .aui-user-view-cell p {
 	margin-top: 3px;

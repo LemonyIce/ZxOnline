@@ -49,7 +49,7 @@ $(function(){
             btn.style.background='#ccc';
         }else{
             word.innerHTML = len + '/140';  
-            btn.style.background='#717171';
+            btn.style.background='#393e46';
         }
     });
 

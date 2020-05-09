@@ -375,7 +375,7 @@
 	 */
 	plotOptions.map = merge(plotOptions.scatter, {
 		animation: false, // makes the complex shapes slow
-		nullColor: '#F8F8F8',
+		nullColor: '#f8f8f8',
 		borderColor: 'silver',
 		borderWidth: 1,
 		marker: null,

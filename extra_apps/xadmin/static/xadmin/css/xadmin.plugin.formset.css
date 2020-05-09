@@ -13,7 +13,7 @@
 }
 .formset .formset-heading{
     padding: 10px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #f8f8f8;
 }
 .formset .row-deleted .formset-form {
     display: none;

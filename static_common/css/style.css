@@ -295,7 +295,7 @@ caption {
 
 .writing_diary {
     display: block;
-    background: #717171;
+    background: #393e46;
     color: #fff;
     height: 30px;
     margin-left: 20px;
@@ -348,7 +348,7 @@ caption {
 }
 
 .sidebar .qq:hover {
-    background: #717171 url(../images/side1_1.png) no-repeat center center;
+    background: #393e46 url(../images/side1_1.png) no-repeat center center;
 }
 
 .sidebar .share {
@@ -364,7 +364,7 @@ caption {
     height: 30px;
     background: #fff;
     padding: 10px;
-    border: 5px solid #717171;
+    border: 5px solid #393e46;
 }
 
 .sidebar .share .bdsharebuttonbox a {
@@ -374,14 +374,14 @@ caption {
 }
 
 .sidebar .share:hover {
-    background: #717171 url(../images/side2_1.png) no-repeat center center;
+    background: #393e46 url(../images/side2_1.png) no-repeat center center;
 }
 
 .sidecode {
     position: absolute;
     left: -120px;
     top: -15px;
-    border: 5px solid #717171;
+    border: 5px solid #393e46;
     display: none;
 }
 
@@ -390,7 +390,7 @@ caption {
 }
 
 .sidebar .code:hover {
-    background: #717171 url(../images/side3_1.png) no-repeat center center;
+    background: #393e46 url(../images/side3_1.png) no-repeat center center;
 }
 
 .sidebar .totop {
@@ -398,7 +398,7 @@ caption {
 }
 
 .sidebar .totop:hover {
-    background: #717171 url(../images/side4_1.png) no-repeat center center;
+    background: #393e46 url(../images/side4_1.png) no-repeat center center;
 }
 
 /*header*/
@@ -416,7 +416,7 @@ caption {
 .header .top {
     height: 38px;
     line-height: 38px;
-    background: #3a3a3a;
+    background: #222831;
     color: #fff;
     width: 100%;
 }
@@ -471,7 +471,7 @@ caption {
 }
 
 .header .top .userdetail h2 {
-    color: #717171;
+    color: #393e46;
 }
 
 .header .top .userdetail .btn {
@@ -487,12 +487,12 @@ caption {
     height: 30px;
     line-height: 30px;
     text-align: center;
-    background: #717171;
+    background: #393e46;
     color: #fff;
 }
 
 .header .top .userdetail .btn a:hover {
-    background: #4FB137;
+    background: #00adb5;
 }
 
 .header .top .userdetail .btn .fl {
@@ -570,11 +570,11 @@ caption {
 }
 
 .loginbtn:hover {
-    background: #4FB137;
+    background: #00adb5;
 }
 
 .registerbtn:hover {
-    background: #4FB137;
+    background: #00adb5;
 }
 
 .dialog-open,
@@ -758,7 +758,7 @@ caption {
 }
 
 .promptbox .button .fr {
-    background: #717171;
+    background: #393e46;
 }
 
 textarea:focus {
@@ -863,7 +863,7 @@ textarea:focus {
 }
 
 .dialogbox .btn {
-    color: #4FB137;
+    color: #00adb5;
     cursor: pointer;
 }
 
@@ -889,7 +889,7 @@ textarea:focus {
 }
 
 .dialogbox .button:hover {
-    background: #4FB137;
+    background: #00adb5;
 }
 
 .registbox {
@@ -906,7 +906,7 @@ textarea:focus {
 }
 
 .registbox .tab .active {
-    color: #4FB137;
+    color: #00adb5;
 }
 
 .registbox .tab div {
@@ -944,7 +944,7 @@ textarea:focus {
 }
 
 .registbox .box .sendcode:hover {
-    background: #4FB137;
+    background: #00adb5;
 }
 
 .registbox .valcode {
@@ -955,7 +955,7 @@ textarea:focus {
     right: 0;
     top: -90px;
     background: #fff;
-    border: 1px solid #4FB137;
+    border: 1px solid #00adb5;
     z-index: 100;
     overflow: hidden;
 }
@@ -1006,7 +1006,7 @@ textarea:focus {
 }
 
 .dialogbox .captcha {
-    background: #4FB137;
+    background: #00adb5;
     position: absolute;
     right: 5px;
     top: 5px;
@@ -1046,7 +1046,7 @@ textarea:focus {
 }
 
 .noactivebox .green, .dialogbox .green, .green {
-    color: #717171 !important;
+    color: #393e46 !important;
 }
 
 .noactivebox .btn {
@@ -1054,7 +1054,7 @@ textarea:focus {
     height: 30px;
     line-height: 30px;
     color: #fff;
-    background: #717171;
+    background: #393e46;
     display: block;
     border-radius: 2px;
     margin: 20px auto;
@@ -1234,13 +1234,13 @@ textarea:focus {
 
 .paydialog .pro h5 {
     font-weight: bold;
-    color: #3a3a3a;
+    color: #222831;
     line-height: 50px;
     font-size: 14px;
 }
 
 .paydialog .pro h6 {
-    color: #3a3a3a;
+    color: #222831;
 }
 
 .contractbox {
@@ -1347,7 +1347,7 @@ textarea:focus {
 
 .selectMenu li {
     padding: 5px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #f8f8f8;
     cursor: pointer;
     display: block;
 }
@@ -1364,7 +1364,7 @@ textarea:focus {
     width: 460px;
     height: 37px;
     margin-top: 40px;
-    border: 2px solid #717171;
+    border: 2px solid #393e46;
     background: #fff;
 }
 
@@ -1378,7 +1378,7 @@ textarea:focus {
 }
 
 .search_btn {
-    background: #717171;
+    background: #393e46;
     cursor: pointer;
 }
 
@@ -1387,7 +1387,7 @@ textarea:focus {
 /*#search_type{height: 37px;line-height: 37px;width: 90px !important;}*/
 /*header nav*/
 .header .nav {
-    background: #717171;
+    background: #393e46;
     height: 38px;
     font-size: 14px;
     width: 100%;
@@ -1410,7 +1410,7 @@ textarea:focus {
 }
 
 .header .nav a:hover, .header .nav .active {
-    background: #3D9328;
+    background: #00adb5;
 }
 
 .header .nav li:last-child a {
@@ -1433,7 +1433,7 @@ textarea:focus {
     width: 120px;
     height: auto;
     overflow: hidden;
-    border: 1px solid #717171;
+    border: 1px solid #393e46;
     top: 37px;
     background: #fff;
     z-index: 10;
@@ -1624,8 +1624,8 @@ textarea:focus {
 .imgslide3 .dots .active,
 .imgslide4 .dots .active,
 .imgslide5 .dots .active {
-    background: #717171 !important;
-    color: #717171 !important;
+    background: #393e46 !important;
+    color: #393e46 !important;
 }
 
 .banner .fr {
@@ -1643,7 +1643,7 @@ textarea:focus {
 
 .banner .fr .head {
     height: 78px;
-    background: #4fb137;
+    background: #00adb5;
 }
 
 .banner .fr .center {
@@ -1747,7 +1747,7 @@ textarea:focus {
 }
 
 .banner .bottom .more {
-    color: #717171;
+    color: #393e46;
     font-size: 12px;
     float: right;
 }
@@ -1900,7 +1900,7 @@ textarea:focus {
 }
 
 .group_list .box:hover {
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .group_list .box:hover img {
@@ -1946,7 +1946,7 @@ textarea:focus {
 }
 
 .group_list .des a:hover h2 {
-    color: #717171;
+    color: #393e46;
 }
 
 .group_list .bottom {
@@ -2001,7 +2001,7 @@ textarea:focus {
 }
 
 .active2 {
-    color: #3d9328 !important;
+    color: #00adb5 !important;
 }
 
 .module1 .imgslide2 {
@@ -2177,7 +2177,7 @@ textarea:focus {
     z-index: 3;
     left: 0;
     top: 0;
-    background: #717171;
+    background: #393e46;
     opacity: .9;
     filter: Alpha(opacity=90);
     width: 100%;
@@ -2455,10 +2455,10 @@ textarea:focus {
 }
 
 footer .footer {
-    background: #3a3a3a;
+    background: #393E46;
     height: 300px;
     padding: 15px;
-    color: #717171;
+    color: #393e46;
 }
 
 footer .footer .nav {
@@ -2530,7 +2530,7 @@ footer .footer .links {
 footer .footer .links span {
     float: left;
     font-weight: bold;
-    color: #717171;
+    color: #393e46;
     margin: 5px;
 }
 
@@ -2540,7 +2540,7 @@ footer .footer .links li {
 }
 
 footer .footer .links a {
-    color: #717171;
+    color: #393e46;
 }
 
 footer .footer .links a:hover {
@@ -2583,7 +2583,7 @@ footer .footer .line {
 }
 
 .crumbs a:hover {
-    color: #717171;
+    color: #393e46;
 }
 
 /*list*/
@@ -2627,9 +2627,9 @@ footer .footer .line {
 }
 
 .listoptions .more:hover {
-    background: #717171;
+    background: #393e46;
     color: #fff;
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .listoptions span {
@@ -2639,7 +2639,7 @@ footer .footer .line {
 }
 
 .listoptions span:hover, .listoptions span.active {
-    color: #717171;
+    color: #393e46;
 }
 
 .listoptions .cont {
@@ -2687,7 +2687,7 @@ footer .footer .line {
 
 .list .right .more {
     float: right;
-    color: #717171;
+    color: #393e46;
     margin-right: 5px;
     cursor: pointer;
 }
@@ -2719,8 +2719,8 @@ footer .footer .line {
 }
 
 .tab_header .active {
-    border-bottom: 2px solid #717171;
-    color: #717171;
+    border-bottom: 2px solid #393e46;
+    color: #393e46;
     font-weight: bold;
 }
 
@@ -2769,7 +2769,7 @@ footer .footer .line {
 }
 
 .pageturn li:hover a, .pageturn .active a {
-    background: #717171;
+    background: #393e46;
     color: #fff;
     border-color: #eaeaea;
 }
@@ -2941,7 +2941,7 @@ footer .footer .line {
 }
 
 .tb-thumb .tb-selected {
-    background: #717171;
+    background: #393e46;
     padding: 2px;
     opacity: 1;
     filter: Alpha(opacity=100);
@@ -3090,7 +3090,7 @@ footer .footer .line {
 
 .groupPurchase_detail .toppro .left .collectgroupbtn {
     width: 120px;
-    background: #717171;
+    background: #393e46;
 }
 .groupPurchase_detail .toppro .left .collectgroupbtn_hover {
     width: 120px;
@@ -3098,7 +3098,7 @@ footer .footer .line {
 }
 
 .groupPurchase_detail .toppro .left .collected {
-    background: #717171 url(../images/star-btn.png) no-repeat 20px center;
+    background: #393e46 url(../images/star-btn.png) no-repeat 20px center;
 }
 
 .groupPurchase_detail .toppro .buy {
@@ -3126,7 +3126,7 @@ footer .footer .line {
 }
 
 .groupPurchase_detail .toppro .right .head {
-    background: #717171;
+    background: #393e46;
     height: 70px;
     color: #fff;
     line-height: 30px;
@@ -3154,7 +3154,7 @@ footer .footer .line {
 }
 
 .groupPurchase_detail .toppro .right .tell {
-    color: #717171;
+    color: #393e46;
     font-weight: bold;
     line-height: 30px;
     font-size: 14px;
@@ -3197,7 +3197,7 @@ footer .footer .line {
 }
 
 .groupPurchase_detail .toppro .right .clear p {
-    color: #717171;
+    color: #393e46;
     font-weight: bold;
     line-height: 30px;
 }
@@ -3384,7 +3384,7 @@ footer .footer .line {
     color: #fff;
     width: 100%;
     height: 100%;
-    background: #717171;
+    background: #393e46;
     text-align: center;
     cursor: pointer;
     overflow: hidden;
@@ -3509,8 +3509,8 @@ footer .footer .line {
 .butler_list .buy, .buyservice {
     width: 70px;
     height: 70px;
-    border: 1px solid #717171;
-    color: #717171;
+    border: 1px solid #393e46;
+    color: #393e46;
     text-align: center;
     border-radius: 50%;
     position: absolute;
@@ -3521,7 +3521,7 @@ footer .footer .line {
 }
 
 .butler_list .buy:hover, .buyservice:hover {
-    background: #717171;
+    background: #393e46;
     color: #fff;
 }
 
@@ -3672,10 +3672,10 @@ footer .footer .line {
 }
 
 .butler_detail_list .btn .btn1 {
-    background: #717171 url(../images/btn3.png) no-repeat 15px center;
+    background: #393e46 url(../images/btn3.png) no-repeat 15px center;
 }
 .butler_detail_list .btn .btn1_hover {
-    background: #717171 url(../images/btn3-hover.png) no-repeat 15px center;
+    background: #393e46 url(../images/btn3-hover.png) no-repeat 15px center;
 }
 
 
@@ -3898,11 +3898,11 @@ footer .footer .line {
 }
 
 /*
-.module5.share .count .c4{background: url(../images/share_c4.png) no-repeat 10px center;color: #717171;margin-right:20px;text-indent:30px;cursor: pointer;padding:0 20px;height:30px;line-height:30px;border-radius: 5px;}
-.module5.share .count .c4:hover{border:1px solid #717171;}
+.module5.share .count .c4{background: url(../images/share_c4.png) no-repeat 10px center;color: #393e46;margin-right:20px;text-indent:30px;cursor: pointer;padding:0 20px;height:30px;line-height:30px;border-radius: 5px;}
+.module5.share .count .c4:hover{border:1px solid #393e46;}
 */
 .bdsharebuttonbox {
-    color: #717171;
+    color: #393e46;
     margin-right: 20px;
     margin-top: 10px;
     float: right;
@@ -3915,7 +3915,7 @@ footer .footer .line {
 
 .bdsharebuttonbox span {
     float: left;
-    color: #717171;
+    color: #393e46;
 }
 
 .list.share_owner .sharelist_cont {
@@ -3971,7 +3971,7 @@ footer .footer .line {
 }
 
 .list.share_owner .keep_diary .btn {
-    background: #4fb137;
+    background: #00adb5;
     height: 50px;
     line-height: 50px;
     text-align: center;
@@ -4040,7 +4040,7 @@ footer .footer .line {
 }
 
 .wordlist a:hover {
-    color: #717171;
+    color: #393e46;
 }
 
 .rightpic img {
@@ -4121,7 +4121,7 @@ footer .footer .line {
     height: 60px;
     line-height: 60px;
     font-size: 16px;
-    color: #3a3a3a;
+    color: #222831;
     border-bottom: 1px solid #eaeaea;
     background: url(../images/arrow.png) no-repeat 95% center;
 }
@@ -4132,7 +4132,7 @@ footer .footer .line {
 
 .personal_list .left li:hover, .personal_list .left .active2 {
     background: #fff url(../images/arrow_g.png) no-repeat 95% center;
-    border-left: 2px solid #717171;
+    border-left: 2px solid #393e46;
 }
 
 .personal_list .left a {
@@ -4140,7 +4140,7 @@ footer .footer .line {
     margin: 0 5%;
     height: 100%;
     display: block;
-    color: #3a3a3a;
+    color: #222831;
 }
 .personal_list .left .re_pwd{
     margin-left: auto;
@@ -4164,7 +4164,7 @@ footer .footer .line {
 
 .personal_list .left .dropwrap:hover .drophead {
     background: #fff url(../images/drop_plus_g.png) no-repeat 95% 20px;
-    border-left: 2px solid #717171;
+    border-left: 2px solid #393e46;
 }
 
 .personal_list .left .drophead {
@@ -4180,7 +4180,7 @@ footer .footer .line {
 }
 
 .personal_list .left .drop a:hover, .personal_list .drop .active {
-    color: #717171;
+    color: #393e46;
 }
 
 .personal_list .left .dropwrap .drop {
@@ -4201,7 +4201,7 @@ footer .footer .line {
 
 .personal_list .head h1 {
     display: inline;
-    color: #717171;
+    color: #393e46;
 }
 
 .personal_list .head .set {
@@ -4210,7 +4210,7 @@ footer .footer .line {
     position: relative;
     right: 0;
     top: 0;
-    color: #717171;
+    color: #393e46;
     margin-right: 10px;
     cursor: pointer;
     text-align: right;
@@ -4224,7 +4224,7 @@ footer .footer .line {
 .personal_list .head .set .new {
     display: inline;
     float: left;
-    color: #717171;
+    color: #393e46;
 }
 
 .personal_list .head .set .drop_btn {
@@ -4243,7 +4243,7 @@ footer .footer .line {
     position: absolute;
     right: -10px;
     top: 50px;
-    border: 1px solid #717171;
+    border: 1px solid #393e46;
     width: 150px;
     background: #fff;
 }
@@ -4555,7 +4555,7 @@ footer .footer .line {
     height: 30px;
     line-height: 30px;
     border-radius: 2px;
-    background: #717171;
+    background: #393e46;
     text-align: center;
     color: #fff;
     position: absolute;
@@ -4650,7 +4650,7 @@ footer .footer .line {
 }
 
 .share_butler_detail .green {
-    color: #717171;
+    color: #393e46;
 }
 
 .changemessage {
@@ -4696,7 +4696,7 @@ footer .footer .line {
     line-height: 90px;
     border: 5px solid #b6e2ac;
     border-radius: 50%;
-    background: #717171;
+    background: #393e46;
     text-align: center;
     vertical-align: middle;
     color: #fff;
@@ -4717,14 +4717,14 @@ footer .footer .line {
 
 .butler_detail .right .time {
     font-size: 18px;
-    color: #717171;
+    color: #393e46;
     background: url(../images/time.png) no-repeat left center;
     padding-left: 25px;
     line-height: 40px;
 }
 
 .butler_detail .right .share {
-    color: #717171;
+    color: #393e46;
     background: url(../images/share_c4.png) no-repeat left center;
     padding-left: 25px;
 }
@@ -4864,7 +4864,7 @@ footer .footer .line {
 }
 
 .write_diary .step li:hover, .write_diary .step .active {
-    background: #717171;
+    background: #393e46;
     border: 3px solid #b6e2ac;
 }
 
@@ -4913,7 +4913,7 @@ footer .footer .line {
 .uppiclists .upload {
     width: 100px;
     height: 100px;
-    border: 1px solid #717171;
+    border: 1px solid #393e46;
     float: left;
     margin-right: 10px;
     cursor: pointer;
@@ -4922,7 +4922,7 @@ footer .footer .line {
 }
 
 .uppiclists .upload:last-child {
-    border: 1px solid #717171 !important;
+    border: 1px solid #393e46 !important;
 }
 
 .uppiclists .upload img {
@@ -4957,7 +4957,7 @@ footer .footer .line {
     line-height: 40px;
     text-align: center;
     color: #fff;
-    background: #717171;
+    background: #393e46;
     border-radius: 5px;
     margin-left: 100px;
     margin-top: 15px;
@@ -5051,7 +5051,7 @@ footer .footer .line {
 }
 
 .butler_list.company .cont a {
-    color: #717171;
+    color: #393e46;
     margin-right: 10px;
 }
 
@@ -5060,12 +5060,12 @@ footer .footer .line {
 }
 
 .companyright {
-    background: #717171;
+    background: #393e46;
 }
 
 .companyright .rightform {
     height: 180px;
-    background: #717171;
+    background: #393e46;
     width: 90%;
     padding: 5%;
 }
@@ -5073,7 +5073,7 @@ footer .footer .line {
 .companyright .head {
     text-align: center;
     color: #fff;
-    background: #4fb137;
+    background: #00adb5;
     padding: 0;
     margin: 0;
     font-size: 24px;
@@ -5198,7 +5198,7 @@ footer .footer .line {
     margin-top: 40px;
     cursor: pointer;
     border-style: solid;
-    border-color: #eee;
+    border-color: #f8f8f8;
     font-weight: bolder;
     font-size: medium;
 }
@@ -5209,7 +5209,7 @@ footer .footer .line {
     line-height: 40px;
     color: #ff8833;
     text-align: center;
-    background: #eee url(../images/star-btn-hover.png) no-repeat 15px center;
+    background: #f8f8f8 url(../images/star-btn-hover.png) no-repeat 15px center;
     text-indent: 15px;
     border-radius: 22px;
     margin-top: 40px;
@@ -5318,7 +5318,7 @@ footer .footer .line {
 }
 
 .companycenter .green {
-    color: #717171;
+    color: #393e46;
 }
 
 .companycenter .tel .btn {
@@ -5551,7 +5551,7 @@ footer .footer .line {
     width: 20%;
     height: 100%;
     line-height: 420px;
-    color: #717171;
+    color: #393e46;
     font-size: 18px;
     text-align: center;
     border-right: 1px solid #eaeaea;
@@ -5573,7 +5573,7 @@ footer .footer .line {
 }
 
 .Releasecont .brief li span {
-    color: #3a3a3a;
+    color: #222831;
 }
 
 .Releasecont .brief .release1 {
@@ -5661,7 +5661,7 @@ footer .footer .line {
 }
 
 .Releasecont .headtab .now, .Releasecont .headtab li:hover {
-    background: #717171;
+    background: #393e46;
     font-weight: bold;
     color: #fff;
 }
@@ -5762,7 +5762,7 @@ footer .footer .line {
 }
 
 .contractlist .fail, .contractlist .green {
-    color: #717171;
+    color: #393e46;
 }
 
 .contractchanges {
@@ -5998,7 +5998,7 @@ footer .footer .line {
 }
 
 .billlist .schedule .green {
-    color: #717171;
+    color: #393e46;
 }
 
 .billlist .schedule p {
@@ -6031,7 +6031,7 @@ footer .footer .line {
 }
 
 .billlist .schedule .gbtn {
-    background: #717171;
+    background: #393e46;
 }
 
 .billlist .schedule2 {
@@ -6081,7 +6081,7 @@ footer .footer .line {
 }
 
 .personal_des .option .btn {
-    color: #717171;
+    color: #393e46;
     width: 100px;
     background: #e3e3e3;
     height: 30px;
@@ -6094,7 +6094,7 @@ footer .footer .line {
 }
 
 .personal_des .option .btn:hover {
-    background: #717171;
+    background: #393e46;
     color: #fff;
 }
 
@@ -6104,11 +6104,11 @@ footer .footer .line {
 }
 
 .personal_des .option .search:focus {
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .personal_des .option .searchbtn {
-    background: #717171 url(../images/search_btn.png) no-repeat center center;
+    background: #393e46 url(../images/search_btn.png) no-repeat center center;
     display: block;
     width: 30px;
     height: 30px;
@@ -6122,7 +6122,7 @@ footer .footer .line {
 .personal_des .add-row,
 .personal_des .add2-row{
     display: block;
-    color: #717171;
+    color: #393e46;
     width: 100px;
     font-size: 14px;
     background: #e3e3e3;
@@ -6136,7 +6136,7 @@ footer .footer .line {
 
 .personal_des .add-row:hover,
 .personal_des .add2-row:hover{
-    background: #717171;
+    background: #393e46;
     color: #fff;
 }
 
@@ -6249,7 +6249,7 @@ footer .footer .line {
 
 .messagelist .top .btn {
     padding-right: 20px;
-    color: #717171;
+    color: #393e46;
 }
 
 .messagelist .top .foldbtn {
@@ -6298,7 +6298,7 @@ footer .footer .line {
 }
 
 .messagelist table .green {
-    color: #717171 !important;
+    color: #393e46 !important;
 }
 
 .bidlist .btn {
@@ -6476,7 +6476,7 @@ footer .footer .line {
     height: 100px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #eee;
+    border: 3px solid #f8f8f8;
     margin: 50px auto 20px;
 }
 
@@ -6490,7 +6490,7 @@ footer .footer .line {
 }
 
 .personal_des .inforcon .left .btn {
-    background: #717171;
+    background: #393e46;
     text-align: center;
     color: #fff;
     height: 30px;
@@ -6618,7 +6618,7 @@ footer .footer .line {
 }
 
 .personal_list .inforcon .right li input:focus {
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .personal_list .inforcon .right li span {
@@ -6628,7 +6628,7 @@ footer .footer .line {
 }
 
 .personal_list .inforcon .right li textarea:focus {
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .personal_list .inforcon .right li label {
@@ -6666,13 +6666,13 @@ footer .footer .line {
 
 .personal_list .inforcon .right li .green {
     text-indent: 0;
-    color: #717171;
+    color: #393e46;
     cursor: pointer;
 }
 
 .personal_list .inforcon .right .focus input {
     background: #fff !important;
-    color: #717171 !important;
+    color: #393e46 !important;
 }
 
 .personal_list .inforcon .right .button {
@@ -6681,7 +6681,7 @@ footer .footer .line {
 
 .personal_list .inforcon .right .button input {
     cursor: pointer;
-    background: #717171;
+    background: #393e46;
     color: #fff;
     text-align: center;
     border-radius: 2px;
@@ -6849,7 +6849,7 @@ footer .footer .line {
 }
 
 .comhome .brief.brief2 .btn {
-    background: #717171;
+    background: #393e46;
     width: 100px;
     height: 40px;
     line-height: 40px;
@@ -6880,7 +6880,7 @@ footer .footer .line {
 
 .ordersub dd h1 {
     font-size: 22px;
-    color: #3a3a3a;
+    color: #222831;
     line-height: 50px;
 }
 
@@ -6926,12 +6926,12 @@ footer .footer .line {
 }
 
 .payways .platform li:hover, .payways .platform li.active {
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .payways .platform li.btn {
     display: none;
-    background: #717171;
+    background: #393e46;
     border: 0;
     color: #fff;
 }
@@ -6993,11 +6993,11 @@ footer .footer .line {
 }
 
 .payways .bank input:focus {
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .payways .bank .btn {
-    background: #717171;
+    background: #393e46;
     height: 30px;
     line-height: 30px;
     width: 50px;
@@ -7029,12 +7029,12 @@ footer .footer .line {
 }
 
 .payways .banklist li.active {
-    border-color: #717171;
+    border-color: #393e46;
 }
 
 .payways .banklist .btn {
     display: none;
-    background: #717171;
+    background: #393e46;
     border: 0;
     color: #fff;
     clear: both;
@@ -7235,7 +7235,7 @@ footer .footer .line {
 }
 
 .comenlist .wordbox {
-    border: 1px solid #eee;
+    border: 1px solid #f8f8f8;
     display: block;
     height: 40px;
     line-height: 20px;
@@ -7255,7 +7255,7 @@ footer .footer .line {
 
 .commentbox {
     position: relative;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f8f8f8;
     padding: 20px 90px 20px 70px;
 }
 
@@ -7293,7 +7293,7 @@ footer .footer .line {
 }
 
 .mast-login-box a {
-    color: #717171;
+    color: #393e46;
     padding: 0 5px;
     cursor: pointer;
     text-decoration: underline;
@@ -7338,7 +7338,7 @@ footer .footer .line {
 
 .comenlist .btnbottom {
     bottom: 0;
-    background: #717171;
+    background: #393e46;
     color: #fff;
     border-radius: 2px;
 }
@@ -7371,7 +7371,7 @@ footer .footer .line {
     line-height: 50px;
     font-size: 14px;
     font-weight: bold;
-    color: #717171;
+    color: #393e46;
 }
 
 .selectpos {
@@ -7438,7 +7438,7 @@ footer .footer .line {
     background: none;
     border: 0;
     font-size: 18px;
-    color: #717171;
+    color: #393e46;
 }
 
 .evaluatelist .evabox1 {
@@ -7533,7 +7533,7 @@ footer .footer .line {
     height: 100px;
     overflow: hidden;
     float: left;
-    border: 1px solid #F8F8F8;
+    border: 1px solid #f8f8f8;
 }
 
 .evaluatelist .right dd {
@@ -7608,8 +7608,8 @@ footer .footer .line {
 .resetpassword h1 {
     line-height: 50px;
     font-size: 16px;
-    color: #717171;
-    border-bottom: 1px solid #717171;
+    color: #393e46;
+    border-bottom: 1px solid #393e46;
     margin-bottom: 20px;
 }
 
@@ -7654,7 +7654,7 @@ footer .footer .line {
 }
 
 .resetpassword .button:hover input {
-    background: #717171;
+    background: #393e46;
     color: #fff;
     border: 0;
 }
@@ -7663,7 +7663,7 @@ footer .footer .line {
     line-height: 100px;
     font-size: 20px;
     font-weight: bold;
-    color: #717171;
+    color: #393e46;
 }
 
 .sbanner {
@@ -7698,13 +7698,13 @@ footer .footer .line {
 }
 
 .snav .active, .snav li:hover {
-    background: #717171;
+    background: #393e46;
     border-radius: 5px;
     color: #fff;
 }
 
 .snav a {
-    color: #717171;
+    color: #393e46;
 }
 
 .snav .active a, .snav li:hover a {
@@ -7723,7 +7723,7 @@ footer .footer .line {
 }
 
 .pagecont .fl li {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f8f8f8;
     height: 50px;
     line-height: 50px;
     text-align: center;
@@ -7767,7 +7767,7 @@ footer .footer .line {
     line-height: 50px;
     height: 50px;
     color: #999;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f8f8f8;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -7815,17 +7815,17 @@ footer .footer .line {
     text-align: center;
     text-indent: 0;
     background: #e3e3e3;
-    color: #717171;
+    color: #393e46;
     cursor: pointer;
 }
 
 .export-btn:hover {
-    background: #717171;
+    background: #393e46;
     color: #fff;
 }
 
 .export-btn span {
-    color: #717171;
+    color: #393e46;
 }
 
 .export-btn:hover span {
@@ -7840,7 +7840,7 @@ footer .footer .line {
 
 .download-bid.active {
     text-decoration: underline;
-    color: #717171;
+    color: #393e46;
 }
 
 .comment-text {
@@ -7965,7 +7965,7 @@ footer .footer .line {
 
 .coninform .button > input {
     cursor: pointer;
-    background: #717171;
+    background: #393e46;
     color: #fff;
     text-align: center;
     border-radius: 2px;
@@ -8102,7 +8102,7 @@ footer .footer .line {
 .upload-btn {
     float: left;
     margin: 10px 20px;
-    background: #717171;
+    background: #393e46;
     border-radius: 2px;
     color: #fff !important;
     height: 30px;
@@ -8127,7 +8127,7 @@ table .upload-btn {
     height: 30px;
     line-height: 30px;
     text-align: center;
-    background: #717171;
+    background: #393e46;
     color: #fff;
     padding: 0;
     border-radius: 3px;
@@ -8181,7 +8181,7 @@ table .upload-btn {
 
 .top-tab > li.active {
     background: #f8f8f8;
-    color: #717171;
+    color: #393e46;
 }
 
 .top-tab-box {
@@ -8246,7 +8246,7 @@ table .upload-btn {
 }
 
 .butler-company-box .head {
-    background: #717171;
+    background: #393e46;
     height: 70px;
     color: #fff;
     line-height: 30px;
@@ -8274,7 +8274,7 @@ table .upload-btn {
 }
 
 .butler-company-box .tell {
-    color: #717171;
+    color: #393e46;
     font-weight: bold;
     line-height: 30px;
     font-size: 14px;
@@ -8319,7 +8319,7 @@ table .upload-btn {
 }
 
 .butler-company-box .clear p {
-    color: #717171;
+    color: #393e46;
     font-weight: bold;
     line-height: 30px;
 }
@@ -8443,7 +8443,7 @@ table .upload-btn {
 
 .Releasecont .brief .title {
     font-size: 18px;
-    color: #717171;
+    color: #393e46;
     text-align: center;
     border-right: 1px solid #ededed;
     line-height: 26px;
@@ -8524,7 +8524,7 @@ table .upload-btn {
 }
 
 .btn-green {
-    background: #717171;
+    background: #393e46;
 }
 
 .btn-green:hover {
@@ -8626,7 +8626,7 @@ table .upload-btn {
 }
 
 .table-box td a {
-    color: #717171;
+    color: #393e46;
 }
 
 .table-box td a:hover {
@@ -8774,7 +8774,7 @@ table .upload-btn {
 
 .help_content .rightcontent .title h3, .detail h3 {
     background: #f4f4f4;
-    color: #717171;
+    color: #393e46;
     font-family: "黑体";
     font-size: 18px;
     font-weight: normal;
@@ -8946,7 +8946,7 @@ table .upload-btn {
 
 .diary-edit{
     padding:5px 15px;
-    background:#717171;
+    background:#393e46;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -8986,7 +8986,7 @@ table .upload-btn {
     overflow-x:hidden;
     overflow-y:scroll;
     background:#fff;
-    border:1px solid #717171;
+    border:1px solid #393e46;
     z-index:999;
     display:none;
 }
@@ -9023,12 +9023,12 @@ table .upload-btn {
 }
 
 .sec_topr_tab {
-    border-bottom: 2px solid #717171;
+    border-bottom: 2px solid #393e46;
     height: 58px;
     width: 308px;
 }
 .sec_topr_tab li {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #f8f8f8;
     float: left;
     height: 58px;
     margin-left: -1px;
@@ -9045,7 +9045,7 @@ table .upload-btn {
     width: 34px;
 }
 .sec_topr_tab .on a {
-    color: #717171;
+    color: #393e46;
     font-weight: bold;
 }
 .index_ico_arrow {
@@ -9082,7 +9082,7 @@ table .upload-btn {
     line-height:30px;
     padding:0 10px;
     margin:10px 10px 10px 0;
-    background:#717171;
+    background:#393e46;
     color:#fff;
     text-indent:0;
     text-align: center;
@@ -9140,7 +9140,7 @@ table .upload-btn {
 }
 
 .my-diary-step .step li.active:hover{
-    background: #717171;
+    background: #393e46;
     border: 3px solid #b6e2ac;
 }
 

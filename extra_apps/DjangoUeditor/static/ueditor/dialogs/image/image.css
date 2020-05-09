@@ -188,7 +188,7 @@
     height: 240px;
     z-index: 9999;
     margin-top: 10px;
-    background-color: #eee;
+    background-color: #f8f8f8;
     overflow: hidden;
 }
 
@@ -660,7 +660,7 @@
     height: 113px;
     margin: 0 0 9px 9px;
     *margin: 0 0 6px 6px;
-    background-color: #eee;
+    background-color: #f8f8f8;
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -797,7 +797,7 @@
     background-color: #3276b1;
 }
 #search #searchReset:hover {
-    background-color: #eee;
+    background-color: #f8f8f8;
 }
 
 #search .msg {
@@ -843,7 +843,7 @@
     filter: alpha(Opacity=100);
     -moz-opacity: 1;
     opacity: 1;
-    border: 2px solid #eee;
+    border: 2px solid #f8f8f8;
 }
 
 #search .searchList li.selected {
@@ -854,7 +854,7 @@
 }
 
 #search .searchList li p {
-    background-color: #eee;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
     position: relative;

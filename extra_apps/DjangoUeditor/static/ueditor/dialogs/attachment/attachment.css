@@ -513,7 +513,7 @@
     height: 113px;
     margin: 0 0 9px 9px;
     *margin: 0 0 6px 6px;
-    background-color: #eee;
+    background-color: #f8f8f8;
     overflow: hidden;
     cursor: pointer;
     position: relative;
@@ -536,7 +536,7 @@
     display: block;
     width: 111px;
     height: 111px;
-    border: 1px solid #eee;
+    border: 1px solid #f8f8f8;
     background: url("./images/bg.png") repeat;
 }
 #online li div span.file-title{
