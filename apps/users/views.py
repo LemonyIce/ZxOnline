@@ -150,6 +150,7 @@ class DynamicLoginView(View):
                 # 注意密码不能保存明文需要经过加密
                 user.mobile = mobile
                 user.save()
+                UserMessage(user=request.user, message="您使用了动态登录，您的初始密码为" + password+"请尽快修改").save()
             login(request, user)
             next = request.GET.get("next", "")
             if next:
@@ -184,6 +185,9 @@ class RegisterView(View):
             user.set_password(password)
             user.mobile = mobile
             user.save()
+
+            UserMessage(user=request.user, message="感谢您注册本站").save()
+
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
@@ -212,6 +216,7 @@ class UserInfoView(LoginRequiredMixin, View):
         user_info_form = UserInfoForm(request.POST, instance=request.user)
         if user_info_form.is_valid():
             user_info_form.save()
+            UserMessage(user=request.user, message="您修改了个人信息，请注意账号安全").save()
             return JsonResponse({
                 "status": "success"
             })
@@ -253,6 +258,7 @@ class ChangePwdView(LoginRequiredMixin, View):
             user = request.user
             user.set_password(pwd1)
             user.save()
+            UserMessage(user=request.user, message="您在最近修改了一次密码，请注意账号安全").save()
 
             return JsonResponse({
                 "status": "success"
@@ -283,6 +289,7 @@ class ChangeMobileView(LoginRequiredMixin, View):
             user.mobile = mobile
             user.username = mobile
             user.save()
+            UserMessage(user=request.user, message="您修改了绑定电话，新的的电话为"+mobile).save()
             return JsonResponse({
                 "status": "success"
             })
@@ -411,19 +418,16 @@ class MyMessageView(LoginRequiredMixin, View):
     login_url = "/login/"
 
     def get(self, request, *args, **kwargs):
-        messages = UserMessage.objects.filter(user=request.user)
+        messages = UserMessage.objects.filter(user=request.user).order_by("-add_time")
         current_page = "message"
-        for message in messages:
-            message.has_read = True
-            message.save()
-
+        UserMessage.objects.filter(user=request.user).update(has_read=True)
         # 对讲师数据进行分页
         try:
             page = request.GET.get('page', 1)
         except PageNotAnInteger:
             page = 1
 
-        p = Paginator(messages, per_page=1, request=request)
+        p = Paginator(messages, per_page=20, request=request)
         messages = p.page(page)
 
         return render(request, "usercenter-message.html", {
