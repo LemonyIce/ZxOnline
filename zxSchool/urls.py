@@ -53,7 +53,7 @@ urlpatterns = [
     url(r'^op/', include(('apps.operations.urls', "operations"), namespace="op")),
 
     # 个人中心
-    # url(r'^users/', include(('apps.users.urls', "users"), namespace="users")),
+    url(r'^users/', include(('apps.users.urls', "users"), namespace="users")),
 
     # 后台管理
     path('admin/', admin.site.urls),

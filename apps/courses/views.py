@@ -62,6 +62,17 @@ class CourseDetailView(View):
         course.click_nums += 1
         course.save()
 
+        # 获取学习状态
+        user_courses = UserCourse.objects.filter(user=request.user, course=course)
+
+        # 不再学习
+        p = request.GET.get('remove', '')
+        if p and user_courses:
+            user_courses.delete()
+            request.GET._mutable = True
+            request.GET.pop('remove')
+            request.GET._mutable = False
+
         # 获取收藏状态
         has_fav_course = False
         has_fav_org = False
@@ -78,12 +89,12 @@ class CourseDetailView(View):
         related_courses = set()
         for course_tag in course_tags:
             related_courses.add(course_tag.course)
-
         return render(request, "course-detail.html", {
             "course": course,
             "has_fav_course": has_fav_course,
             "has_fav_org": has_fav_org,
-            "related_courses": related_courses
+            "related_courses": related_courses,
+            "user_courses": user_courses
         })
 
 

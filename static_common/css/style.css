@@ -502,6 +502,10 @@ caption {
     display: inline-block;
     width: 49%;
 }
+.header .top .userdetail .btn .fl .customer{
+    display: inline-block;
+    width: 100%;
+}
 
 .header .top .userdetail .btn a.fr {
     width: 32%;
@@ -532,9 +536,9 @@ caption {
 
 .header .top .msg-num {
     float: right;
-    margin-right: 120px;
+    /*margin-right: 120px;*/
     height: 38px;
-    width: 60px;
+    width: 15px;
     background: url(../images/laba.png) no-repeat 0 center;
     padding-left: 20px;
     color: #fff;
@@ -3085,11 +3089,11 @@ footer .footer .line {
 }
 
 .groupPurchase_detail .toppro .left .collectgroupbtn {
-    width: 180px;
+    width: 120px;
     background: #717171;
 }
 .groupPurchase_detail .toppro .left .collectgroupbtn_hover {
-    width: 180px;
+    width: 120px;
     background: #ff7800;
 }
 
@@ -3098,10 +3102,16 @@ footer .footer .line {
 }
 
 .groupPurchase_detail .toppro .buy {
-    width: 180px;
+    width: 200px;
     background: #ff7800;
 }
-
+.groupPurchase_detail .toppro .rm{
+    width: 180px;
+}
+.groupPurchase_detail .toppro .rm_btn{
+    width: 80px;
+    background-color: #ae9f9f;
+}
 .groupPurchase_detail .buy.bought {
     background: #919191;
 }
@@ -4106,7 +4116,8 @@ footer .footer .line {
 }
 
 .personal_list .left li {
-    width: 100%;
+    padding-left: 15px;
+    width: 92%;
     height: 60px;
     line-height: 60px;
     font-size: 16px;
@@ -4131,6 +4142,13 @@ footer .footer .line {
     display: block;
     color: #3a3a3a;
 }
+.personal_list .left .re_pwd{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45px;
+    width: 100px;
+}
+
 
 .personal_list .left .dropwrap {
     height: auto;

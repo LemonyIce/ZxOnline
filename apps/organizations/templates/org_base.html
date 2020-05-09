@@ -23,7 +23,7 @@
                 <div class="top">
 				<div class="wp">
 					<div class="fl">
-                        <p>联系方式：<b>3333333333</b></p>
+                        <p>联系方式：<b>6666666</b></p>
                     </div>
                    {% if user.is_authenticated %}
                             <div class="personal">
@@ -40,9 +40,13 @@
                                         </dd>
                                     </dl>
                                     <div class="btn">
-{#                                        <a class="personcenter fl" href="{% url 'users:info' %}">#}
-                                            进入个人中心
-{#                                        </a>#}
+                                    <div class="personcenter fl">
+                                        <a class="{% if not user.is_superuser or not user.is_admin %}customer{% endif %}"
+                                           href="{% url 'users:info' %}">进入个人中心</a>
+                                        {% if user.is_superuser or user.is_admin %}
+                                            <a class="" href="/xadmin/" target="_blank">进入管理中心</a>
+                                        {% endif %}
+                                    </div>
                                         <a class="fr" href="{% url 'logout' %}">退出</a>
                                     </div>
                                 </div>
@@ -51,9 +55,9 @@
                             <a style="color:white" class="fr registerbtn" href="{% url 'register' %}">注册</a>
                             <a style="color:white" class="fr loginbtn" href="{% url 'login' %}">登录</a>
                         {% endif %}
-{#				    <a href="{% url 'users:messages' %}">#}
+				    <a href="{% url 'users:messages' %}">
                         <div class="msg-num"><span id="MsgNum">{{ unread_nums }}</span></div>
-{#                    </a>#}
+                    </a>
                 </div>
 			</div>
             

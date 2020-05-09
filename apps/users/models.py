@@ -31,6 +31,7 @@ class UserProfile(AbstractUser):
     mobile = models.CharField(verbose_name="手机号码", max_length=11)
     image = models.ImageField(verbose_name="用户头像", upload_to="media/head_image/%Y/%m", default="default.jpg")
     add_time = models.DateTimeField(verbose_name="添加时间", default=datetime.now,)
+    is_admin = models.BooleanField(verbose_name="是否为管理员", default=False, )
 
     class Meta:
         verbose_name = "用户信息"

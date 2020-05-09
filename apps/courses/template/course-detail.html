@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}课程详情页-慕学在线网{% endblock %}
+{% block title %}课程详情页-知行在线网{% endblock %}
 {% block custom_bread %}
 <section>
     <div class="wp">
@@ -25,7 +25,7 @@
 
 					</div>
 					<div class="des">
-						<h1 title="django 从入门到精通体验开始了">{{ course.name }}</h1>
+						<h1 title="{{ course.name }}">{{ course.name }}</h1>
 						<span class="key">{{ course.desc }}</span>
 						<div class="prize">
 							<span class="fl">难度：<i class="key">{{ course.get_degree_display }}</i></span>
@@ -41,6 +41,8 @@
                                 {% endfor %}
 							</li>
 						</ul>
+
+                    {% if not user_courses %}
 						<div class="btns">
 							<div class="btn {% if has_fav_course %}collectgroupbtn_hover{% else %}collectgroupbtn{% endif %}"  id="jsLeftBtn">
                                   {% if has_fav_course %}已收藏{% else %}收藏{% endif %}
@@ -51,6 +53,25 @@
                                 </div>
                             </a>
 						</div>
+                    {% else %}
+                        <div class="btns">
+							<div class="btn rm {% if has_fav_course %}collectgroupbtn_hover{% else %}collectgroupbtn{% endif %}"  id="jsLeftBtn">
+                                  {% if has_fav_course %}已收藏{% else %}收藏{% endif %}
+                            </div>
+                            <a style="color: white" href="{% url 'course:lesson' course.id %}">
+                                <div class="buy btn rm">
+                                        开始学习
+                                </div>
+                            </a>
+                            <a href="{% url 'course:detail' course.id  %}?remove=1">
+                                <div class="buy btn rm_btn">
+                                不再学习
+                                </div>
+                            </a>
+						</div>
+                    {% endif %}
+
+
 					</div>
 				</div>
 				<div class="right">

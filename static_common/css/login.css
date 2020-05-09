@@ -232,6 +232,10 @@ a:hover{
     text-align: left;
     margin-top: 24px;
 }
+.error{
+
+}
+
 .form-group{
     position:relative;
     width:288px;
@@ -244,13 +248,15 @@ a:hover{
 }
 .form-group-tips{
     position: relative;
-    top: -16px;
+    top: -17px;
     padding-right: 7px;
     text-align: right;
     font-size: x-small;
+    color: #000;
+    font-weight: bold;
 }
 .marb20{
-    margin-bottom:20px;
+    margin-bottom:6px;
 }
 .marb8{
     margin-bottom:8px;
