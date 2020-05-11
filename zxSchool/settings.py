@@ -26,8 +26,8 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 SECRET_KEY = '2g4#yov+nv6y&ylbrdhzok789t$cfj146*x)t^a^*jt*dcg^yb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -134,6 +134,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 # 重写user
 AUTH_USER_MODEL = "users.UserProfile"
+# 重写登录验证
+AUTHENTICATION_BACKENDS = [
+    "apps.users.views.CustomAuth"
+]
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -178,6 +182,14 @@ PAGINATION_SETTINGS = {
     'PAGE_RANGE_DISPLAYED': 6,
     'MARGIN_PAGES_DISPLAYED': 1,
     'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+}
+# 阿里云oss服务
+OSS = {
+    "AccessKeyId": "LTAI4G1ybzoBymETj2xoRGJ5",
+    "AccessKeySecret": "XP0cUvywnmdFj2aBZs1rGO1lsokc0Z",
+    "endpoint": "http://oss-cn-qingdao.aliyuncs.com",
+    "Bucket": "zxmooc",
+    "bucket_url": "https://zxmooc.oss-cn-qingdao.aliyuncs.com/"
 }
 
 

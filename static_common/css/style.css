@@ -105,6 +105,7 @@ table.linehei50 td, table.linehei50 th {
 
 .bg404 {
     text-align: center;
+    overflow: hidden;
 }
 
 .bg503 {
@@ -1327,10 +1328,11 @@ textarea:focus {
 }
 
 .selectOption {
-    color: #67ae56;
-    background: url('../images/select_arrow.png') no-repeat 85% 60%;
+    color: #00adb5;
+    background: url('../images/select_arrow.png') no-repeat 85% 50%;
     display: block;
     cursor: pointer;
+    padding-left: 10px;
 }
 
 .selectMenu {

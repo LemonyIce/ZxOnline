@@ -1,11 +1,29 @@
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.generic.base import View
 
 # Create your views here.
 from apps.courses.models import Course
 from apps.operations.forms import UserFavForm, CommentsForm
-from apps.operations.models import UserFavorite, CourseComments
+from apps.operations.models import UserFavorite, CourseComments, Banner
 from apps.organizations.models import CourseOrg, Teacher
+
+
+class IndexView(View):
+    """
+    登录
+    """
+    def get(self, request, *args, **kwargs):
+        banners = Banner.objects.all().order_by("index")
+        courses = Course.objects.filter(is_banner=False)[:6]
+        banner_courses = Course.objects.filter(is_banner=True)
+        course_orgs = CourseOrg.objects.all()[:15]
+        return render(request, "index.html", {
+            "banners": banners,
+            "courses": courses,
+            "banner_courses": banner_courses,
+            "course_orgs": course_orgs
+        })
 
 
 class AddFavView(View):

@@ -1,4 +1,6 @@
+from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from pure_pagination import Paginator, PageNotAnInteger
 from django.shortcuts import render
 from django.views.generic.base import View
@@ -15,19 +17,30 @@ from apps.users.forms import LoginForm, DynamicLoginForm, DynamicLoginPostForm, 
 from apps.utils.YunPian import send_single_sms
 from apps.utils.random_str import generate_random
 from apps.utils.redis_tools import redis_save
-from zxSchool.settings import YP, REDIS
-import redis
 
 
 # Create your views here.
 def message_nums(request):
     """
-    登录状态
+    消息提示
     """
     if request.user.is_authenticated:
         return {'unread_nums': request.user.usermessage_set.filter(has_read=False).count()}
     else:
         return {}
+
+
+class CustomAuth(ModelBackend):
+    """
+    重写合法性验证
+    """
+    def authenticate(self, request, username=None, password=None, **kwargs):
+        try:
+            user = UserProfile.objects.get(Q(username=username) | Q(mobile=username))
+            if user.check_password(password):
+                return user
+        except Exception as e:
+            return None
 
 
 class LoginView(View):
@@ -38,19 +51,19 @@ class LoginView(View):
         # 是否有登录信息，注意django全局公用session
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse("index"))
-        # banners = Banner.objects.all()[:3]
+        banners = Banner.objects.all()[:3]
         next = request.GET.get("next", "")
         login_form = DynamicLoginForm()
         return render(request, "templates/login.html", {
             "login_form": login_form,
             "next": next,
-            # "banners":banners
+            "banners":banners
         })
 
     def post(self, request, *args, **kwargs):
         # 表单验证
         login_form = LoginForm(request.POST)
-        # banners = Banner.objects.all()[:3]
+        banners = Banner.objects.all()[:3]
         if login_form.is_valid():
             # 用于通过用户和密码查询用户是否存在
             user_name = login_form.cleaned_data["username"]
@@ -66,13 +79,10 @@ class LoginView(View):
                 return HttpResponseRedirect(reverse("index"))
             else:
                 # 未查询到用户
-                # return render(request, "login.html", {"msg": "用户名或密码错误",
-                #                                       "login_form": login_form, "banners": banners})
-                return render(request, "templates/login.html", {"msg": "用户名或密码错误",
-                                                                "login_form": login_form})
+                return render(request, "login.html", {"msg": "用户名或密码错误",
+                                                      "login_form": login_form, "banners": banners})
         else:
-            # return render(request, "login.html", {"login_form": login_form, "banners": banners})
-            return render(request, "templates/login.html", {"login_form": login_form, })
+            return render(request, "login.html", {"login_form": login_form, "banners": banners})
 
 
 class LogoutView(View):
@@ -89,16 +99,18 @@ class SendSmsView(View):
     发送验证码
     """
     def post(self, request, *args, **kwargs):
-        import time
         send_sms_form = DynamicLoginForm(request.POST)
         re_dict = {}
         if send_sms_form.is_valid():
             mobile = send_sms_form.cleaned_data["mobile"]
             code = generate_random(4, 0)
-            # re_json = send_single_sms(YP["apikey"], code, mobile=mobile)
-            re_json = {
-                "code": 0,
-            }  # 测试用标记注释，这里注释掉的是短信发送接口
+
+            re_json = send_single_sms(code, mobile=mobile)
+            # re_json = {
+            #     "code": 0,
+            # }
+            # 测试用标记注释，这里注释掉的是短信发送接口
+
             if re_json["code"] == 0:
                 re_dict["status"] = "success"
                 redis_save({
@@ -125,17 +137,17 @@ class DynamicLoginView(View):
             return HttpResponseRedirect(reverse("index"))
         next = request.GET.get("next", "")
         login_form = DynamicLoginForm()
-        # banners = Banner.objects.all()[:3]
+        banners = Banner.objects.all()[:3]
         return render(request, "templates/login.html", {
             "login_form": login_form,
             "next": next,
-            # "banners": banners
+            "banners": banners
         })
 
     def post(self, request, *args, **kwargs):
         login_form = DynamicLoginPostForm(request.POST)
         dynamic_login = True
-        # banners = Banner.objects.all()[:3]
+        banners = Banner.objects.all()[:3]
         if login_form.is_valid():
             # 查没有注册账号，没有就注册一个
             mobile = login_form.cleaned_data["mobile"]
@@ -160,7 +172,7 @@ class DynamicLoginView(View):
             d_form = DynamicLoginForm()
             return render(request, "templates/login.html", {"login_form": login_form,
                                                             "d_form": d_form,
-                                                            # "banners":banners,
+                                                            "banners": banners,
                                                             "dynamic_login": dynamic_login
                                                             })
 

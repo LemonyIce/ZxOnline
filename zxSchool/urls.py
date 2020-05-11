@@ -20,6 +20,7 @@ from django.views.static import serve
 from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 
+from apps.operations.views import IndexView
 from extra_apps import xadmin
 
 from apps.users.views import LoginView, LogoutView, SendSmsView, DynamicLoginView, RegisterView
@@ -29,8 +30,8 @@ from zxSchool.settings import MEDIA_ROOT
 
 urlpatterns = [
     # 主页
-    path('', TemplateView.as_view(template_name="index.html")),
-    path('index/', TemplateView.as_view(template_name="index.html"), name="index"),
+    path('', IndexView.as_view()),
+    path('index/', IndexView.as_view(), name="index"),
 
     # 登录页
     path('login/', LoginView.as_view(), name="login"),
