@@ -191,5 +191,5 @@ OSS = {
     "Bucket": "zxmooc",
     "bucket_url": "https://zxmooc.oss-cn-qingdao.aliyuncs.com/"
 }
-
+MY_URL = "123.57.131.56"
 

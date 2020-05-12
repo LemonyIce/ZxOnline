@@ -9,6 +9,8 @@ from apps.organizations.forms import AddAskForm
 from apps.organizations.models import CourseOrg, City, Teacher
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
+from zxSchool.settings import MY_URL
+
 
 # Create your views here.
 class OrgView(View):
@@ -54,6 +56,7 @@ class OrgView(View):
         p = Paginator(all_orgs, per_page=10, request=request)
         orgs = p.page(page)
         return render(request, "org-list.html", {
+            "my_url": MY_URL,
             "all_orgs": orgs,
             "org_nums": org_nums,
             "all_citys": all_citys,
@@ -225,6 +228,7 @@ class TeacherDetailView(View):
 
         hot_teachers = Teacher.objects.all().order_by("-click_nums")[:3]
         return render(request, "teacher-detail.html", {
+            "my_url": MY_URL,
             "teacher": teacher,
             "teacher_fav": teacher_fav,
             "org_fav": org_fav,

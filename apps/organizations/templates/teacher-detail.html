@@ -27,7 +27,7 @@
                                 <span class="fl {% if teacher_fav %}btn1_hover{% else %}btn1{% endif %} collectionbtn" id="jsLeftBtn">
                                      {% if teacher_fav %}已收藏{% else %}收藏{% endif %}
                                 </span>
-                                <a href="http://connect.qq.com/widget/shareqq/index.html?url=http://127.0.0.1:8000{% url 'org:teacher_detail' teacher.id %}&desc=我在%23知行网%23发现了讲师%23{{ teacher.name }}%23,和我一起来学习吧&title=知行在线&summary='{{ user.nick_name }}的分享'&pics=http://127.0.0.1:8000{{ teacher.image.url }}&site=QQ分享&style=101&width=96&height=24" target="_blank">
+                                <a href="http://connect.qq.com/widget/shareqq/index.html?url=http://{{ my_url }}/{% url 'org:teacher_detail' teacher.id %}&desc=我在%23知行网%23发现了讲师%23{{ teacher.name }}%23,和我一起来学习吧&title=知行在线&summary='{{ user.nick_name }}的分享'&pics=http://{{ my_url }}/{{ teacher.image.url }}&site=QQ分享&style=101&width=96&height=24" target="_blank">
                                   <span class="fr btn2 shareBtn bdsharebuttonbox">
                                     <span class="fl">分享</span>
                                 </span>
