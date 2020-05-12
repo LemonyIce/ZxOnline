@@ -50,12 +50,12 @@
             <div class="module5 share company-diary-box" style="padding:10px 0;">
             <div class="left">
                 <img class="pic" src="{{ MEDIA_URL }}{{ teacher.image }}"/>
-                <p>昵称：{{ teacher.name }}</p>
+                <p>职位：{{ teacher.work_position }}</p>
             </div>
             <div class="right">
                 <div class="top">
                     <div class="fl">
-                        <a href=""><h1>{{ teacher.work_position }}</h1></a>
+                        <a href="{% url 'org:teacher' course_org.id %}"><h1>{{ teacher.name }}</h1></a>
                         <span>工作年限：{{ teacher.work_years }}</span>
                     </div>
                 </div>
