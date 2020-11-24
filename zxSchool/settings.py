@@ -168,9 +168,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # 云片网相关
 YP = {
-    "apikey": "f615db1772e8ddc5171fd7cef2c28b09",
-    "url": "https://sms.yunpian.com/v2/sms/single_send.json",
-    "text": "【刘靖宇test】您的验证码是{}",
+    "apikey": "",
+    "url": "",
+    "text": "",
 }
 # redis 相关
 REDIS = {
@@ -185,11 +185,11 @@ PAGINATION_SETTINGS = {
 }
 # 阿里云oss服务
 OSS = {
-    "AccessKeyId": "LTAI4G1ybzoBymETj2xoRGJ5",
-    "AccessKeySecret": "XP0cUvywnmdFj2aBZs1rGO1lsokc0Z",
-    "endpoint": "http://oss-cn-qingdao.aliyuncs.com",
-    "Bucket": "zxmooc",
-    "bucket_url": "https://zxmooc.oss-cn-qingdao.aliyuncs.com/"
+    "AccessKeyId": "",
+    "AccessKeySecret": "",
+    "endpoint": "",
+    "Bucket": "",
+    "bucket_url": ""
 }
 MY_URL = "123.57.131.56"
 
